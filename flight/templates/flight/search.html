@@ -100,16 +100,14 @@
                                             <input type="range" class="form-control-range" min="{{min_price}}" max="{{max_price}}" value="{{max_price}}" oninput="filter()">
                                             <div class="price-range-output">
                                                 <div class="initial-price-range">
-                                                    <span class="currency-symbol">₹</span>
                                                     <span class="initial-price-value">{{min_price}}</span>
                                                 </div>
                                                 <div class="final-price-range">
-                                                    <span class="currency-symbol">₹</span>
                                                     <span class="final-price-value"></span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><!---->
+                                    </div>
                                 </div>
                                 <div class="clr-filter-div">
                                     <center>
@@ -192,11 +190,11 @@
                                                             <span>
 {#                                                                {% if service == 'Regular' %}{{book.regular_fare}}{% endif %}#}
 {#                                                                {% if service == 'Premium' %}{{book.premium_fare}}{% endif %}#}
-                                                                USD $ {{ price }}
+                                                                USD $ {{ book.regular_fare }}
                                                             </span>
                                                             {% elif trip_type == '2' %}
                                                             <span>
-                                                                CAD $ {{ price }}
+                                                                CAD $ {{ book.regular_fare }}
                                                             </span>
 {#                                                            {% elif trip_type == 2 %}#}
 {#                                                            <span>#}

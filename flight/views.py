@@ -158,7 +158,6 @@ def booking(request):
         books = adven_booking.objects.filter(check_in_day=adven_day, origin=origin, destination=destination).exclude(
             regular_fare=0).order_by('regular_fare')
         print("----------------------->", books)
-        price = adven_booking.objects.first().regular_fare
         try:
             max_price = books.last().regular_fare
             min_price = books.first().regular_fare
@@ -180,7 +179,7 @@ def booking(request):
 
     # print(calendar.day_name[depart_date.weekday()])
     if trip_type == '1':
-        usd_price = price
+        # usd_price = price
         print("----------1------------->", books)
         return render(request, "flight/search.html", {
             'allbooks': books,
@@ -192,10 +191,12 @@ def booking(request):
             'return_date': return_date,
             'max_price': math.ceil(max_price / 100) * 100,
             'min_price': math.floor(min_price / 100) * 100,
-            'price': usd_price
+            # 'price': usd_price
         })
     else:
-        cad_price = price * 1.37
+        for book in books:
+            book.regular_fare = book.regular_fare * CAD
+            book.premium_fare = book.premium_fare * CAD
         print("----------2------------->", books)
         return render(request, "flight/search.html", {
             'allbooks': books,
@@ -207,7 +208,7 @@ def booking(request):
             'return_date': return_date,
             'max_price': (math.ceil(max_price / 100) * 100) * 1.35,
             'min_price': (math.floor(min_price / 100) * 100) * 1.35,
-            'price': cad_price
+            #'price': cad_price
         })
 
 

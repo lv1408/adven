@@ -35,16 +35,42 @@
                             <label for="flight-from">From: </label>
                             <input type="text" name="Origin" placeholder="From" id="flight-from" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{origin | lower}}" data-list="places_from" autocomplete="off" value="{{origin | upper}}">  <!--list="places_from"-->
                             <div id="places_from" class="places_box">
-                                <div class="each_places_from_list places__list" data-value="jfk" onclick="selectplace(this)">New York (America)</div>
+                                <div class="each_places_from_list places__list" data-value="jfk" onclick="selectplace(this)">New York (USA)</div>
                                 <div class="each_places_from_list places__list" data-value="yyz" onclick="selectplace(this)">Toronto (Canada)</div>
+                                <div class="each_places_from_list places__list" data-value="ams" onclick="selectplace(this)">Amsterdam (Europe)</div>
+                                <div class="each_places_from_list places__list" data-value="brn" onclick="selectplace(this)">Berlin (Europe)</div>
+                                <div class="each_places_from_list places__list" data-value="bhm" onclick="selectplace(this)">Birmingham (UK)</div>
+                                <div class="each_places_from_list places__list" data-value="muc" onclick="selectplace(this)">Munich (Europe)</div>
+                                <div class="each_places_from_list places__list" data-value="man" onclick="selectplace(this)">Manchester (UK)</div>
+                                <div class="each_places_from_list places__list" data-value="lhr" onclick="selectplace(this)">London (UK)</div>
+                                <div class="each_places_from_list places__list" data-value="prh" onclick="selectplace(this)">Perth (Australia)</div>
+                                <div class="each_places_from_list places__list" data-value="syd" onclick="selectplace(this)">Sydney (Australia)</div>
+                                <div class="each_places_from_list places__list" data-value="mel" onclick="selectplace(this)">Melbourne (Australia)</div>
+                                <div class="each_places_from_list places__list" data-value="mtr" onclick="selectplace(this)">Montreal (Canada)</div>
+                                <div class="each_places_from_list places__list" data-value="yvr" onclick="selectplace(this)">Vancover (Canada)</div>
+                                <div class="each_places_from_list places__list" data-value="ord" onclick="selectplace(this)">Chicago (USA)</div>
+                                <div class="each_places_from_list places__list" data-value="txs" onclick="selectplace(this)">Texas (USA)</div>
                             </div>
                         </div>
                         <div class="input-row">
                             <label for="flight_to">To: </label>
                             <input type="text" name="Destination" placeholder="To" id="flight-to" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{destination | lower}}" data-list="places_to" autocomplete="off" value="{{destination | upper}}">
                             <div id="places_to" class="places_box">
-                                <div class="each_places_to_list places__list" data-value="yyz" onclick="selectplace(this)">Toronto (Canada)</div>
-                                <div class="each_places_to_list places__list" data-value="jfk" onclick="selectplace(this)">New York (America)</div>
+                                <div class="each_places_from_list places__list" data-value="jfk" onclick="selectplace(this)">New York (USA)</div>
+                                <div class="each_places_from_list places__list" data-value="yyz" onclick="selectplace(this)">Toronto (Canada)</div>
+                                <div class="each_places_from_list places__list" data-value="ams" onclick="selectplace(this)">Amsterdam (Europe)</div>
+                                <div class="each_places_from_list places__list" data-value="brn" onclick="selectplace(this)">Berlin (Europe)</div>
+                                <div class="each_places_from_list places__list" data-value="bhm" onclick="selectplace(this)">Birmingham (UK)</div>
+                                <div class="each_places_from_list places__list" data-value="muc" onclick="selectplace(this)">Munich (Europe)</div>
+                                <div class="each_places_from_list places__list" data-value="man" onclick="selectplace(this)">Manchester (UK)</div>
+                                <div class="each_places_from_list places__list" data-value="lhr" onclick="selectplace(this)">London (UK)</div>
+                                <div class="each_places_from_list places__list" data-value="prh" onclick="selectplace(this)">Perth (Australia)</div>
+                                <div class="each_places_from_list places__list" data-value="syd" onclick="selectplace(this)">Sydney (Australia)</div>
+                                <div class="each_places_from_list places__list" data-value="mel" onclick="selectplace(this)">Melbourne (Australia)</div>
+                                <div class="each_places_from_list places__list" data-value="mtr" onclick="selectplace(this)">Montreal (Canada)</div>
+                                <div class="each_places_from_list places__list" data-value="yvr" onclick="selectplace(this)">Vancouver (Canada)</div>
+                                <div class="each_places_from_list places__list" data-value="ord" onclick="selectplace(this)">Chicago (USA)</div>
+                                <div class="each_places_from_list places__list" data-value="txs" onclick="selectplace(this)">Texas (USA)</div>
                             </div>
                         </div>
                         <div class="input-row">
