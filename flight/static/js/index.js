@@ -1,15 +1,3 @@
-//function esc(element) {
-//    document.addEventListener('keydown', event => {
-//        if(event.key === 'Escape') {
-//            element.style.display = 'none';
-//        }
-//    });
-//    element.parentElement.querySelector('input[type=text]').addEventListener("blur", () => {
-//        setTimeout(() => {
-//            element.style.display = 'none';
-//        },80);
-//    });
-//}
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#flight-from").addEventListener("input", event => {
@@ -107,8 +95,7 @@ function trip_type() {
     document.querySelectorAll('.trip-type').forEach(type => {
         if(type.checked) {
             if(type.value === "1") {
-                document.querySelector('#return_date').value = '';
-                document.querySelector('#return_date').disabled = true;
+                document.querySelector('#return_date').disabled = false;
             }
             else if(type.value === "2") {
                 document.querySelector('#return_date').disabled = false;
@@ -119,26 +106,26 @@ function trip_type() {
 
 function flight_search() {
     if(!document.querySelector("#flight-from").dataset.value) {
-        alert("Please select flight origin.");
+        alert("Please select your home city.");
         return false;
     }
     if(!document.querySelector("#flight-to").dataset.value) {
-        alert("Please select flight destination.");
+        alert("Please select your destination city.");
         return false;
     }
     if(document.querySelector("#one-way").checked) {
         if(!document.querySelector("#depart_date").value) {
-            alert("Please select departure date.");
+            alert("Please select check-in date.");
             return false;
         }
     }
     if(document.querySelector("#round-trip").checked) {
         if(!document.querySelector("#depart_date").value) {
-            alert("Please select departure date.");
+            alert("Please select check-in date.");
             return false;
         }
         if(!document.querySelector("#return_date").value) {
-            alert("Please select return date.");
+            alert("Please select check-out date.");
             return false;
         }
     }

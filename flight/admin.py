@@ -11,5 +11,5 @@ admin.site.register(Passenger)
 admin.site.register(User)
 admin.site.register(Ticket)
 
-admin.site.register(Places)
-admin.site.register(Booking)
+admin.site.register(adven_place)
+admin.site.register(adven_booking)

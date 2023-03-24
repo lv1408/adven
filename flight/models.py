@@ -18,7 +18,7 @@ class Place(models.Model):
     def __str__(self):
         return f"{self.city}, {self.country} ({self.code})"
 
-class Places(models.Model):
+class adven_place(models.Model):
     city = models.CharField(max_length=64)
     code = models.CharField(max_length=3)
     country = models.CharField(max_length=64)
@@ -51,19 +51,20 @@ class Flight(models.Model):
         return f"{self.id}: {self.origin} to {self.destination}"
 
 # bookings
-class Booking(models.Model):
-    destination = models.ForeignKey(Places, on_delete=models.CASCADE, related_name="dest")
-    check_in_time = models.TimeField(auto_now=False, auto_now_add=False)
-    checkin_day = models.ManyToManyField(Week, related_name="checkin_day")
+class adven_booking(models.Model):
+    origin = models.ForeignKey(adven_place, on_delete=models.CASCADE, related_name="depart", default="1")
+    destination = models.ForeignKey(adven_place, on_delete=models.CASCADE, related_name="dest")
+    check_in_timing = models.TimeField(auto_now=False, auto_now_add=False)
+    check_in_day = models.ManyToManyField(Week, related_name="checkin_day")
     duration = models.DurationField(null=True)
     check_out_time = models.TimeField(auto_now=False, auto_now_add=False)
     resort = models.CharField(max_length=64)
-    adven_sub_category = models.CharField(max_length=64)
+    adven = models.CharField(max_length=64)
     regular_fare = models.FloatField(null=True)
     premium_fare = models.FloatField(null=True)
 
     def __str__(self):
-        return f"{self.id}: {self.destination} for {self.adven_sub_category}"
+        return f"{self.id}: {self.origin} for {self.adven}"
 
 GENDER = (
     ('male','MALE'),    #(actual_value, human_readable_value)
