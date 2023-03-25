@@ -7,7 +7,7 @@ import secrets
 from datetime import datetime, timedelta
 from xhtml2pdf import pisa
 
-from flight.constant import FEE
+from flight.constant import *
 
 def render_to_pdf(template_src, context_dict={}):
     template = get_template(template_src)
@@ -19,36 +19,41 @@ def render_to_pdf(template_src, context_dict={}):
     return None
 
 
-def createticket(user,passengers,passengerscount,flight1,flight_1date,flight_1class,coupon,countrycode,email,mobile):
-    ticket = Ticket.objects.create()
-    ticket.user = user
-    ticket.ref_no = secrets.token_hex(3).upper()
-    for passenger in passengers:
-        ticket.passengers.add(passenger)
-    ticket.flight = flight1
-    ticket.flight_ddate = datetime(int(flight_1date.split('-')[2]),int(flight_1date.split('-')[1]),int(flight_1date.split('-')[0]))
+def createticket(user,customers,customerscount,adven,advenInDate,avenOutDate,serviceClass,trip_type,countrycode,email,mobile):
+    adventures = adven_Ticket_Model.objects.create()
+    adventures.user = user
+    adventures.ref_no = secrets.token_hex(3).upper()
+    for customer in customers:
+        adventures.passengers.add(customer)
+    adventures.adven = adven
+    adventures.adven_ddate = datetime(int(advenInDate.split('-')[2]),int(advenInDate.split('-')[1]),int(advenInDate.split('-')[0]))
     ###################
-    flight1ddate = datetime(int(flight_1date.split('-')[2]),int(flight_1date.split('-')[1]),int(flight_1date.split('-')[0]),flight1.depart_time.hour,flight1.depart_time.minute)
-    flight1adate = (flight1ddate + flight1.duration)
-    ###################
-    ticket.flight_adate = datetime(flight1adate.year,flight1adate.month,flight1adate.day)
+    adventures.adve_adate = datetime(int(avenOutDate.split('-')[2]),int(avenOutDate.split('-')[1]),int(avenOutDate.split('-')[0]))
     ffre = 0.0
-    if flight_1class.lower() == 'first':
-        ticket.flight_fare = flight1.first_fare*int(passengerscount)
-        ffre = flight1.first_fare*int(passengerscount)
-    elif flight_1class.lower() == 'business':
-        ticket.flight_fare = flight1.business_fare*int(passengerscount)
-        ffre = flight1.business_fare*int(passengerscount)
-    else:
-        ticket.flight_fare = flight1.economy_fare*int(passengerscount)
-        ffre = flight1.economy_fare*int(passengerscount)
-    ticket.other_charges = FEE
-    if coupon:
-        ticket.coupon_used = coupon                     ##########Coupon
-    ticket.total_fare = ffre+FEE+0.0                    ##########Total(Including coupon)
-    ticket.seat_class = flight_1class.lower()
-    ticket.status = 'PENDING'
-    ticket.mobile = ('+'+countrycode+' '+mobile)
-    ticket.email = email
-    ticket.save()
-    return ticket
+    if serviceClass.lower() == 'regular':
+        if trip_type == '1':
+            adventures.adven_fare = adven.regular_fare*int(customerscount)
+            ffre = adven.regular_fare*int(customerscount)
+        elif trip_type == '2':
+            adventures.adven_fare = (adven.regular_fare * int(customerscount))*CAD
+            ffre = (adven.regular_fare * int(customerscount))*CAD
+    elif serviceClass.lower() == 'premium':
+        if trip_type == '1':
+            adventures.flight_fare = adven.premium_fare*int(customerscount)
+            ffre = adven.premium_fare*int(customerscount)
+        elif trip_type == '2':
+            adventures.adven_fare = (adven.premium_fare * int(customerscount))*CAD
+            ffre = (adven.premium_fare * int(customerscount))*CAD
+    adventures.other_charges = FEE
+                    ##########Coupon
+    adventures.total_fare = ffre+FEE+0.0                    ##########Total(Including coupon)
+    if trip_type == '1':
+        adventures.currency = 'USD'
+    elif trip_type == '2':
+        adventures.currency = 'CAD'
+    adventures.service_class = serviceClass.lower()
+    adventures.status = 'PENDING'
+    adventures.mobile = ('+'+countrycode+' '+mobile)
+    adventures.email = email
+    adventures.save()
+    return adventures

@@ -12,10 +12,11 @@
     <section class="section section1">
         <form action="{% url 'book' %}" onsubmit="return book_submit()" method="POST">
             {% csrf_token %}
-            <input type="hidden" name="flight1" value="{{adven.id}}">
-            <input type="hidden" name="flight1Date" value='{{advenInDate | date:"d-m-Y"}}'>
+            <input type="hidden" name="advenid" value="{{adven.id}}">
+            <input type="hidden" name="advenInDate" value='{{advenInDate | date:"d-m-Y"}}'>
             <input type="hidden" name="avenOutDate" value='{{advenOutDate | date:"d-m-Y"}}'>
-            <input type="hidden" name="flight1Class" value="{{service}}">
+            <input type="hidden" name="serviceClass" value="{{service}}">
+            <input type="hidden" name="trip-type" value="{{trip_types}}">
 
             <div class="row main-row">
                 <div class="col-8">
@@ -47,7 +48,7 @@
                         </div>
                         <div class="col-3 arrival-time">
                             <div class="time">{{adven.check_out_time | time:'H:i'}}</div>
-                            <div class="date adate" data-value='{{advenOutDate | date:"d-m-Y"}}'>{{flight1adate | date:"D, d M y"}}</div>
+                            <div class="date adate" data-value='{{advenOutDate | date:"d-m-Y"}}'>{{advenOutDate | date:"D, d M y"}}</div>
                             <div class="place">{{adven.destination.city}}</div>
                             <div class="airport">{{adven.resort}}</div>
                         </div>
@@ -350,7 +351,7 @@
                                 </label>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary btn-light" style="margin-right: auto; background-color: #0e3e71; border-color: #0e3e71;" onclick="add_traveller()">Add</button>
+                        <button type="button" class="btn btn-primary btn-light" style="margin-right: auto; background-color: #0e3e71; color:white; border-color: #0e3e71;" onclick="add_traveller()">Add</button>
                     </div>
                     <hr>
                     <div class="add-traveller">
@@ -443,7 +444,7 @@
                 </div>
                 <div class="col media-payment-btn">
                     <div>
-                        <button type="submit" class="btn" style="background-color: #0e3e71; border-color: #0e3e71">Proceed to payment</button>
+                        <button type="submit" class="btn" style="background-color: #0e3e71; border-color: #0e3e71; color:white;">Proceed to payment</button>
                     </div>
                 </div>
             </div>

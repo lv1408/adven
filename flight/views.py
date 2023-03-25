@@ -211,7 +211,6 @@ def booking(request):
             #'price': cad_price
         })
 
-
 def review(request):
     adven_id = request.GET.get('bookId')
     adven_date = request.GET.get('bookDate')
@@ -222,9 +221,9 @@ def review(request):
 
     if request.user.is_authenticated:
         adven = adven_booking.objects.get(id=adven_id)
-        advenInDate = datetime(int(adven_date.split('-')[2]), int(adven_date.split('-')[1]),
-                               int(adven_date.split('-')[0]), adven.check_in_timing.hour, adven.check_in_timing.minute)
-        advenOutDate = adven_check_out_date
+        advenInDate = datetime(int(adven_date.split('-')[2]),int(adven_date.split('-')[1]),int(adven_date.split('-')[0]),adven.check_in_timing.hour,adven.check_in_timing.minute)
+        advenOutDate = datetime(int(adven_check_out_date.split('-')[2]),int(adven_check_out_date.split('-')[1]),int(adven_check_out_date.split('-')[0]),adven.check_out_time.hour,adven.check_out_time.minute)
+        print("------advenOutDate------",advenOutDate)
         trip_types = trip_type
         regular_fare = adven.regular_fare
         premium_fare = adven.premium_fare
@@ -259,84 +258,63 @@ def review(request):
         return HttpResponseRedirect(reverse("login"))
 
 
+
 def book(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
-            flight_1 = request.POST.get('flight1')
-            flight_1date = request.POST.get('flight1Date')
-            flight_1class = request.POST.get('flight1Class')
-            f2 = False
-            if request.POST.get('flight2'):
-                flight_2 = request.POST.get('flight2')
-                flight_2date = request.POST.get('flight2Date')
-                flight_2class = request.POST.get('flight2Class')
-                f2 = True
+            adven_id = request.POST.get('advenid')
+            advenInDate = request.POST.get('advenInDate')
+            avenOutDate = request.POST.get('avenOutDate')
+            serviceClass = request.POST.get('serviceClass')
+            trip_type = request.POST.get('trip-type')
             countrycode = request.POST['countryCode']
             mobile = request.POST['mobile']
+            print("-------mobile-------",mobile)
             email = request.POST['email']
-            flight1 = Flight.objects.get(id=flight_1)
-            if f2:
-                flight2 = Flight.objects.get(id=flight_2)
-            passengerscount = request.POST['passengersCount']
-            passengers = []
-            for i in range(1, int(passengerscount) + 1):
+            advenid = adven_booking.objects.get(id=adven_id)
+
+            customercount = request.POST['passengersCount']
+            passengers=[]
+            for i in range(1,int(customercount)+1):
                 fname = request.POST[f'passenger{i}FName']
                 lname = request.POST[f'passenger{i}LName']
                 gender = request.POST[f'passenger{i}Gender']
-                passengers.append(Passenger.objects.create(first_name=fname, last_name=lname, gender=gender.lower()))
-            coupon = request.POST.get('coupon')
+                passengers.append(Passenger.objects.create(first_name=fname,last_name=lname,gender=gender.lower()))
 
             try:
-                ticket1 = createticket(request.user, passengers, passengerscount, flight1, flight_1date, flight_1class,
-                                       coupon, countrycode, email, mobile)
-                if f2:
-                    ticket2 = createticket(request.user, passengers, passengerscount, flight2, flight_2date,
-                                           flight_2class, coupon, countrycode, email, mobile)
+                booking_ticket = createticket(request.user,passengers,customercount,advenid,advenInDate,avenOutDate,serviceClass,trip_type,countrycode,email,mobile)
 
-                if (flight_1class == 'Economy'):
-                    if f2:
-                        fare = (flight1.economy_fare * int(passengerscount)) + (
-                                    flight2.economy_fare * int(passengerscount))
-                    else:
-                        fare = flight1.economy_fare * int(passengerscount)
-                elif (flight_1class == 'Business'):
-                    if f2:
-                        fare = (flight1.business_fare * int(passengerscount)) + (
-                                    flight2.business_fare * int(passengerscount))
-                    else:
-                        fare = flight1.business_fare * int(passengerscount)
-                elif (flight_1class == 'First'):
-                    if f2:
-                        fare = (flight1.first_fare * int(passengerscount)) + (flight2.first_fare * int(passengerscount))
-                    else:
-                        fare = flight1.first_fare * int(passengerscount)
+                if(serviceClass == 'Regular'):
+                    if (trip_type == '1'):
+                        conversion = advenid.regular_fare * USD
+                        fare = (conversion*int(customercount))
+                    elif (trip_type == '2'):
+                        conversion = advenid.regular_fare * CAD
+                        fare = (conversion * int(customercount))
+                elif (serviceClass == 'Premium'):
+                    if (trip_type == '1'):
+                        conversion = advenid.premium_fare * USD
+                        fare = (conversion * int(customercount))
+                    elif (trip_type == '2'):
+                        conversion = advenid.premium_fare * CAD
+                        fare = (conversion * int(customercount))
             except Exception as e:
                 return HttpResponse(e)
-
-            if f2:  ##
-                return render(request, "flight/payment.html", {  ##
-                    'fare': fare + FEE,  ##
-                    'ticket': ticket1.id,  ##
-                    'ticket2': ticket2.id  ##
-                })  ##
+             ##
             return render(request, "flight/payment.html", {
-                'fare': fare + FEE,
-                'ticket': ticket1.id
+                'fare': fare+FEE,
+                'ticket': booking_ticket.id
             })
         else:
             return HttpResponseRedirect(reverse("login"))
     else:
         return HttpResponse("Method must be post.")
 
-
 def payment(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             ticket_id = request.POST['ticket']
-            t2 = False
-            if request.POST.get('ticket2'):
-                ticket2_id = request.POST['ticket2']
-                t2 = True
+            print("---------------------->ticket_id",ticket_id)
             fare = request.POST.get('fare')
             card_number = request.POST['cardNumber']
             card_holder_name = request.POST['cardHolderName']
@@ -345,21 +323,14 @@ def payment(request):
             cvv = request.POST['cvv']
 
             try:
-                ticket = Ticket.objects.get(id=ticket_id)
+                ticket = adven_Ticket_Model.objects.get(id=ticket_id)
                 ticket.status = 'CONFIRMED'
+                print("----ticket.status----",ticket.status)
                 ticket.booking_date = datetime.now()
+                print("------ticket.booking_date------",ticket.booking_date)
                 ticket.save()
-                if t2:
-                    ticket2 = Ticket.objects.get(id=ticket2_id)
-                    ticket2.status = 'CONFIRMED'
-                    ticket2.save()
-                    return render(request, 'flight/payment_process.html', {
-                        'ticket1': ticket,
-                        'ticket2': ticket2
-                    })
                 return render(request, 'flight/payment_process.html', {
-                    'ticket1': ticket,
-                    'ticket2': ""
+                    'ticket1': ticket
                 })
             except Exception as e:
                 return HttpResponse(e)
@@ -370,20 +341,21 @@ def payment(request):
 
 
 def ticket_data(request, ref):
-    ticket = Ticket.objects.get(ref_no=ref)
+    ticket = adven_Ticket_Model.objects.get(ref_no=ref)
     return JsonResponse({
         'ref': ticket.ref_no,
-        'from': ticket.flight.origin.code,
-        'to': ticket.flight.destination.code,
-        'flight_date': ticket.flight_ddate,
+        'from': ticket.adven.origin.code,
+        'to': ticket.adven.destination.code,
+        'flight_date': ticket.adven_ddate,
         'status': ticket.status
     })
-
 
 @csrf_exempt
 def get_ticket(request):
     ref = request.GET.get("ref")
-    ticket1 = Ticket.objects.get(ref_no=ref)
+    # ticket1 = adven_Ticket_Model.objects.get(ref_no=ref)
+    ticket1 = adven_Ticket_Model.objects.get(ref_no=ref)
+    print("----ref-----",ticket1)
     data = {
         'ticket1': ticket1,
         'current_year': datetime.now().year
@@ -391,10 +363,9 @@ def get_ticket(request):
     pdf = render_to_pdf('flight/ticket.html', data)
     return HttpResponse(pdf, content_type='application/pdf')
 
-
 def bookings(request):
     if request.user.is_authenticated:
-        tickets = Ticket.objects.filter(user=request.user).order_by('-booking_date')
+        tickets = adven_Ticket_Model.objects.filter(user=request.user).order_by('-booking_date')
         return render(request, 'flight/bookings.html', {
             'page': 'bookings',
             'tickets': tickets
@@ -409,7 +380,7 @@ def cancel_ticket(request):
         if request.user.is_authenticated:
             ref = request.POST['ref']
             try:
-                ticket = Ticket.objects.get(ref_no=ref)
+                ticket = adven_Ticket_Model.objects.get(ref_no=ref)
                 if ticket.user == request.user:
                     ticket.status = 'CANCELLED'
                     ticket.save()
@@ -434,7 +405,7 @@ def resume_booking(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
             ref = request.POST['ref']
-            ticket = Ticket.objects.get(ref_no=ref)
+            ticket = adven_Ticket_Model.objects.get(ref_no=ref)
             if ticket.user == request.user:
                 return render(request, "flight/payment.html", {
                     'fare': ticket.total_fare,

@@ -103,6 +103,6 @@ function book_submit() {
     if(parseInt(pcount.value) > 0) {
         return true;
     }
-    alert("Please add at-least one customer .")
+    alert("Please add at-least one customer.")
     return false;
 }

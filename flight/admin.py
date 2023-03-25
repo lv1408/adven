@@ -13,3 +13,4 @@ admin.site.register(Ticket)
 
 admin.site.register(adven_place)
 admin.site.register(adven_booking)
+admin.site.register(adven_Ticket_Model)

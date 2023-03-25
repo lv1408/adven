@@ -102,7 +102,7 @@
             <h3>Important details</h3>
             <ul style="padding-left: 50px;">
                 <li>
-                    This is your E-Ticket Iternary. You must bring it to the destination for check-in, and it is recommended you to retain a copy for your records.
+                    This is your E-Ticket. You must bring it to the destination for check-in, and it is recommended you to retain a copy for your records.
                 </li>
                 <li>
                     Regular class customer should have to wait in line to experience all adventures. Premium Class customers should address first to get the experience of adventures. Mandatory precuation for your adventures begins at least 30 minutes before your scheduled time.
@@ -115,7 +115,7 @@
                     <td style="width: 100%;">TICKET DETAILS</td>
                 </tr>
             </table>
-            <table cellspacing='0' >
+             <table cellspacing='0' >
                 <tr class="tr-odd">
                     <th>TICKET REFERENCE</th>
                     <td>{{ticket1.ref_no | upper}}</td>
@@ -123,10 +123,10 @@
                     <td>{{ticket1.booking_date | date:'d M y' | upper}}<br>{{ticket1.booking_date | time:'Hi' | upper}}</td>
                 </tr>
                 <tr class="tr-even">
-                    <th>CHECKIN DATE</th>
-                    <td>{{ticket1.flight_ddate | date:'d M y' | upper}}</td>
+                    <th>Adventure DATE</th>
+                    <td>{{ticket1.adven_ddate | date:'d M y' | upper}}</td>
                     <th>CLASS</th>
-                    <td>{{ticket1.seat_class | upper}}</td>
+                    <td>{{ticket1.service_class | upper}}</td>
                 </tr>
                 <tr class="tr-odd">
                     <th>EMAIL</th>
@@ -146,7 +146,7 @@
                     <td style="width: 100%;">CUSTOMER DETAILS</td>
                 </tr>
             </table>
-            <table cellspacing='0'>
+                     <table cellspacing='0'>
                 <tr class="tr-odd">
                     <th>S NO.</th>
                     <th>CUSTOMER NAME</th>
@@ -159,86 +159,64 @@
                             <td style="width: 20%; padding-left: 20px;">{{forloop.counter}}</td>
                             <td style="width: 35%; padding-left: 20px;">{{passenger.last_name | upper}}/{{passenger.first_name | upper}}</td>
                             <td style="width: 20%; padding-left: 20px;">{{passenger.gender | upper}}</td>
-                            <td style="width: 25%; padding-left: 20px;">{{ticket1.seat_class | upper}}</td>
+                            <td style="width: 25%; padding-left: 20px;">{{ticket1.service_class | upper}}</td>
                         </tr>
                     {% else %}
                         <tr class="tr-even">
                             <td style="width: 20%; padding-left: 20px;">{{forloop.counter}}</td>
                             <td style="width: 35%; padding-left: 20px;">{{passenger.last_name | upper}}/{{passenger.first_name | upper}}</td>
                             <td style="width: 20%; padding-left: 20px;">{{passenger.gender | upper}}</td>
-                            <td style="width: 25%; padding-left: 20px;">{{ticket1.seat_class | upper}}</td>
+                            <td style="width: 25%; padding-left: 20px;">{{ticket1.service_class | upper}}</td>
                         </tr>
                     {% endif %}
                 {% endfor %}
-                    
+
             </table>
             <table class="table">
                 <tr class="tr-caption">
-                    <td style="width: 100%; padding-left: 20px;">ADVNETURE DETAILS</td>
+                    <td style="width: 100%; padding-left: 20px;">ADVENTURE TICKET BOOKING DETAILS</td>
                 </tr>
             </table>
             <table cellspacing='0'>
                 <tr class="tr-odd">
-                    <th>ADVNETURE</th>
+                    <th>ADVENTURE</th>
                     <th>CHECKIN/CHECKOUT</th>
                 </tr>
                 <tr class="tr-even">
-                    <td style="width: 29%; padding-left: 20px;">{{ticket1.flight.airline | upper}}<br>{{ticket1.flight.plane | upper}}</td>
-                    <td style="width: 22%; padding-left: 20px;">{{ticket1.flight_ddate | date:'d M y' | upper}}<br>{{ticket1.flight.depart_time | time:'Hi'}}</td>
+                    <td style="width: 29%; padding-left: 20px;">{{ticket1.adven.adven | upper}}<br>{{ticket1.adven.resort | upper}}</td>
+                    <td style="width: 22%; padding-left: 20px;">{{ticket1.adven_ddate | date:'d M y' | upper}}<br>{{ticket1.adven.check_in_timing | time:'Hi'}}</td>
                 </tr>
                 <tr class="tr-odd">
                     <td style="width: 29%; padding-left: 20px;"></td>
-                    <td style="width: 22%; padding-left: 20px;">{{ticket1.flight_adate | date:'d M y' | upper}}<br>{{ticket1.flight.arrival_time | time:'Hi'}}</td>
+                    <td style="width: 22%; padding-left: 20px;">{{ticket1.adve_adate | date:'d M y' | upper}}<br>{{ticket1.adven.check_out_time | time:'Hi'}}</td>
                 </tr>
             </table>
-            {% if ticket2 %}
-                <div>
-                    <hr style="height: .1px; border: 0; background-color: #78b3da;" noshade>
-                    <table style="margin-top: 0;" cellspacing='0'>
-                        <tr class="tr-odd">
-                            <th>ADVNETURE</th>
-                            <th>CHECKIN/CHECKOUT</th>
-                        </tr>
-                        <tr class="tr-even">
-                            <td style="padding-left: 20px; width: 29%;">{{ticket2.flight.airline | upper}}<br>{{ticket2.flight.plane | upper}}</td>
-                            <td style="padding-left: 20px; width: 22%;">{{ticket2.flight_ddate | date:'d M y' | upper}}<br>{{ticket2.flight.depart_time | time:'Hi'}}</td>
-
-                        </tr>
-                        <tr class="tr-odd">
-                            <td style="padding-left: 20px; width: 29%;"></td>
-                            <td style="padding-left: 20px; width: 22%;">{{ticket2.flight_adate | date:'d M y' | upper}}<br>{{ticket2.flight.arrival_time | time:'Hi'}}</td>
-
-                        </tr>
-                    </table>
-                    <hr style="height: .1px; border: 0; background-color: #78b3da;" noshade>
-                </div>
-            {% endif %}
             <!---->
             <table class="table">
                 <tr class="tr-caption">
-                    <td style="width: 100%;">PRICE DETAILS</td>
+                    {% if ticket1.currency == 'USD' %}
+                        <td style="width: 100%;">PRICE DETAILS in USD</td>
+                    {% elif ticket1.currency == 'CAD' %}
+                        <td style="width: 100%;">PRICE DETAILS in CAD</td>
+                    {% endif %}
                 </tr>
             </table>
             <table cellspacing='0' style="width: 100vw;">
                 <tr class="tr-odd">
                     <th style="width: 35%;">FARE</th>
-                    <td style="width: 65%;">INR {{ticket1.flight_fare}}</td>
+                    <td style="width: 65%;">{{ticket1.adven_fare}}</td>
                 </tr>
                 <tr class="tr-even">
                     <th style="width: 35%;">CHARGES</th>
-                    <td style="width: 65%;">INR {{ticket1.other_charges}}</td>
-                </tr>
-                <tr class="tr-odd">
-                    <th style="width: 35%;">DISCOUNT</th>
-                    <td style="width: 65%;">INR (-) {{ticket1.coupon_discount}}</td>
+                    <td style="width: 65%;">{{ticket1.other_charges}}</td>
                 </tr>
                 <tr class="tr-even">
                     <th style="width: 35%;">TOTAL</th>
-                    <td style="width: 65%;">INR {{ticket1.total_fare}}</td>
+                        <td style="width: 65%;">{{ticket1.total_fare}}</td>
                 </tr>
             </table>
         </div>
     </main>
-    <p style="margin: 10px 0; font-size: .8em;">&#169;	 {{ current_year}} Adveture Awaits. All rights reserved.</p>
+    <p style="margin: 10px 0; font-size: .8em;">&#169;	 {{ current_year}} Adventure Awaits. All rights reserved.</p>
 </body>
 </html>
