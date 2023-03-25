@@ -1,0 +1,81 @@
+{% extends 'flight/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>Water Adventure</title>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/layout_style.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <section class="privacybanner-section">
+        <div class="single_destination">
+            <div class="thumb">
+                <img src="{% static 'img/adventures/Mountain/mountain-page.jpg' %}" alt="Privacy Policy" class="privacybannerimg">
+            </div>
+            <div class="content">
+                <a href="{% url 'index' %}" style="font-size: 50px">Click here to book your Mountain adventure!!</a>
+            </div>
+        </div>
+    </section>
+    <section class="section second-section">
+            <div class="row popular_destinations">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Mountain/1.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Hiking</b></h4>
+                        <p>Hiking is the most popular outdoor activity among people.  It requires no previous experience. Happens best if you have a local guide who shares his knowledge on the hiking trails, the surrounding scenery and the natural and cultural diversity of the visited area.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Mountain/2.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Trekking</b></h4>
+                        <p>Trekking is “the longer and harder” version of hiking in unspoiled wilderness with the specific purpose of exploring and enjoying the scenery and getting away from civilization. Usually it requires a good mountain orientation; the ability to walk for a few days and to wear a backpack with the needed gear.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Mountain/3.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>High mountaineering</b></h4>
+                        <p>High mountaineering is a challenging activity of climbing on top of high alpine peaks on all types of terrain whether it is snow, glacier, glacial ice or rock. The activity requires a well-prepared and skilled mountain guide and the use of different techniques and equipment: harness, helmet, rope, crampons, ice axe.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Mountain/4.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Rock climbing</b></h4>
+                        <p>Rock climbing is a physically and mentally demanding adventure activity of climbing up rock formations and peaks. Happens best if you hire a guide, as it requires a good knowledge of the terrain and the use of special equipment, crucial for the safe completion of the route (ropes, carabiners and harnesses).</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Mountain/5.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Mountain biking</b></h4>
+                        <p>Mountain biking is an attractive and active mountain adventure that gives you the opportunity for a faster and more dynamic visit of a certain destination. It requires special mountain biking equipment (mountain bikes and helmets) and good knowledge of the off-road terrain, that is why we recommend you to always hire a guide with you.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock%}

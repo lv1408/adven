@@ -1,0 +1,26 @@
+{% extends 'flight/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>Terms and Conditions</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/privacy-policy.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <section class="privacybanner-section">
+        <img src="{% static 'img/about_us.PNG' %}" alt="Privacy Policy" class="privacybannerimg">
+    </section>
+    <section class="section section1">
+        <div class="container">
+            <h1>Welcome to our Adventure Awaits! </h1>
+            <p>We are a leading platform for booking tickets to some of the most exciting and adventurous sports activities around the world.</p>
+            <p>Our mission is to provide adrenaline seekers with a one-stop-shop for finding and booking tickets to their favorite adventure sports. Whether it's bungee jumping, skydiving, white water rafting, or any other high-octane activity, we've got you covered.</p>
+            <p>Our team is made up of experienced professionals who are passionate about adventure sports. We understand the thrill of pushing your limits and trying new things, and we're dedicated to making that experience as easy and enjoyable as possible for our customers.</p>
+            <p>We work with the best adventure sports companies and tour operators in the industry to offer a wide range of experiences at competitive prices. We also ensure that all of our partners adhere to the highest safety standards, so you can book with confidence.</p>
+            <p>Our website is user-friendly and easy to navigate, allowing you to browse and book tickets quickly and efficiently. We also offer excellent customer service, with a dedicated team available to answer any questions or concerns you may have.</p>
+            <p>Thank you for choosing Adventure Awaits, and we look forward to helping you plan your next unforgettable adventure!</p>
+        </div>
+    </section>
+{% endblock%}

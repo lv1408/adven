@@ -1,0 +1,59 @@
+{% extends 'flight/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>Road Adventure</title>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/layout_style.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <section class="privacybanner-section">
+        <div class="single_destination">
+            <div class="thumb">
+                <img src="{% static 'img/adventures/Road/road-page.jpg' %}" alt="Privacy Policy" class="privacybannerimg">
+            </div>
+            <div class="content">
+                <a href="{% url 'index' %}" style="font-size: 50px">Click here to book your Road adventure!!</a>
+            </div>
+        </div>
+    </section>
+    <section class="section second-section">
+            <div class="row popular_destinations">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Road/1.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Adventure Cycling </b></h4>
+                        <p>Adventure cycling is defined in different ways but the gist is cycling over a long distance, taking in different areas and often camping overnight. The real beauty of adventure cycling is that it is a low cost way of getting some serious adventures into your life.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Road/2.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Expedition driving</b></h4>
+                        <p>Expedition driving is a type of adventure travel that involves driving through remote areas and exploring the natural environment. It is a combination of off-road driving, camping, and self-sufficiency.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Road/3.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Motorcycle tour</b></h4>
+                        <p>A motorcycle tour is a type of adventure travel that involves exploring different destinations on a motorcycle. It's a popular way to travel, as it allows riders to experience the freedom of the open road and explore scenic routes and destinations at their own pace.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock%}

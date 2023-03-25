@@ -1,0 +1,88 @@
+{% extends 'flight/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>Air Adventure</title>
+    <link rel="stylesheet" href="{% static 'css/layout_style.css' %}">
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock head %}
+
+{% block body %}
+    <section class="privacybanner-section">
+        <div class="single_destination">
+            <div class="thumb">
+                <img src="{% static 'img/adventures/Air/air-page.jpg' %}" alt="Privacy Policy" class="privacybannerimg">
+            </div>
+            <div class="content">
+                <a href="{% url 'index' %}" style="font-size: 50px">Click here to book your Air adventure!!</a>
+            </div>
+        </div>
+    </section>
+    <section class="section second-section">
+        <div class="container">
+            <div class="row popular_destinations">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Air/1.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Sky diving</b></h4>
+                        <p>Sky diving aka parachute jumping is the most prominent open sky thriller that can make your heart pump while escalating the rushes in your veins.</p>
+                        <p>The jump (free-fall) is usually done from an aero-plane or from a tall structure: the views and openness you experience while doing this adventure are worth the risk.</p>
+                        <p>A parachute is attached to your shoulders which aids in controlling speed while you land. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Air/2.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Paragliding</b></h4>
+                        <p>This adventurous sport is one of the safest and best bets to fly high in the air.</p>
+                        <p>All you have to do is simply spread a wing on a slope or mountain, pump up like a kite over your head, run a few steps, and you don’t even know when you stepped off into the sky! Right from mountains to coastal and hills to deserts- various spots in India offers the best of paragliding experience with utmost safety</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Air/3.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Hang gliding</b></h4>
+                        <p>Hang gliding is an unusual sport when it comes to air adventure. This electrifying activity is extremely easy and an affordable solution to satiate the adventurer in you.</p>
+                        <p>The experience can be taken from the hills as the aircraft needs a high wind-facing location to take off. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Air/4.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Ballooning</b></h4>
+                        <p>Ballooning is an exciting air sport involving the flight of a hot air balloon. The calm ride and bird’s eye perspective of the world below are popular among those who participate in this hobby. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Air/5.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Plane Aerobatics</b></h4>
+                        <p>Plane aerobatics is an extreme sport that involves the practice of flying manoeuvres (eg. rolls and dives), spectacular flying feats and unique plane orientations that are not used in normal flight.</p>
+                        <p>Aerobatics is often performed in small airplanes (eg. a warbird) or gliders for pilot training, recreation, entertainment and sport. It can be done by a single aircraft or in a formation with other planes. For example, as part of an air show.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

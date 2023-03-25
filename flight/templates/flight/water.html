@@ -1,0 +1,97 @@
+{% extends 'flight/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>Mountain Adventure</title>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/layout_style.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <section class="privacybanner-section">
+        <div class="single_destination">
+            <div class="thumb">
+                <img src="{% static 'img/adventures/Water/water-page.jpg' %}" alt="Privacy Policy" class="privacybannerimg">
+            </div>
+            <div class="content">
+                <a href="{% url 'index' %}" style="font-size: 50px">Click here to book your Water adventure!!</a>
+            </div>
+        </div>
+    </section>
+    <section class="section second-section">
+            <div class="row popular_destinations">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Water/1.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Scuba diving</b></h4>
+                        <p>Scuba diving is a mode of underwater diving where the diver uses a self-contained underwater breathing apparatus (scuba) which is completely independent of surface supply, to breathe underwater.</p>
+                        <p>It’s a well known one the best in the US! Scuba diving is open for water levels of all kinds be it shallow or deeps, scuba diving awaits you!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Water/2.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Parasailing</b></h4>
+                        <p>When it comes to parasailing, you’ll be strapped into an exciting parachute and you’ll be floating high up in the air!</p>
+                        <p>It’ll give you the panoramic view of the beach and will make you feel so comfortable, effortless, invincible and more.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Water/3.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Wake boarding and water skiing</b></h4>
+                        <p>Wake boarding and water-skiing are almost the same water sports which are so much fun and one of the most popular water sports in the US. Undergo training with the best professionals in the US and enjoy these sports wherein, you can wake jump at all times!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Water/4.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Flyboard Flying</b></h4>
+                        <p>Flyboarding is a water sport that involves strapping a pair of boots onto a board that is connected to a high-powered watercraft, which propels the rider into the air using powerful jets of water.</p>
+                        <p>Flyboarding is a physically demanding sport that requires a lot of core strength, balance, and coordination.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Water/5.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Horse Surfing</b></h4>
+                        <p>Horse surfing, also known as horseboarding, is a relatively new extreme sport that combines horse riding and wakeboarding. In horse surfing, the rider stands on a wake-board that's attached to a tow rope, which is then pulled by a galloping horse.</p>
+                        <p>To horse surf, you need a few things, including a wakeboard, a tow rope, a helmet, and a horse that's trained for the sport.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'img/adventures/Water/6.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4><b>Free diving</b></h4>
+                        <p>Free diving is a form of underwater diving that relies on the diver's ability to hold their breath rather than using breathing equipment such as scuba tanks.</p>
+                        <p>Free diving requires minimal equipment compared to scuba diving. The essential equipment includes a wetsuit, fins, a mask, and weight belts to help the diver descend.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock%}

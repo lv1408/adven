@@ -1,0 +1,23 @@
+{% extends 'flight/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/privacy-policy.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <section class="privacybanner-section">
+            <img src="{% static 'img/about_us.PNG' %}" alt="Privacy Policy" class="privacybannerimg">
+    </section>
+    <section class="section section1">
+        <div class="container">
+            <p>Adventure Awaits understands its valuable customer's concerns for privacy and undertakes several measures of protecting and maintaining their personal information that is being shared with us!</p>
+            <p> We may use your personal information to provide you with the adventure sports activity you have booked, to communicate with you regarding your booking, to process payments, and to improve our services. We may also use your personal information for marketing purposes, such as sending you promotional emails or newsletters. You have the option to opt-out of receiving marketing communications at any time.</p>
+            <p>We take reasonable measures to protect your personal information from unauthorized access or disclosure. This includes using secure servers, encrypting sensitive data, and implementing physical and technical safeguards.</p>
+            <p>Our services are not intended for use by children under the age of 13. We do not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us immediately.</p>
+            <p>We may update our privacy policy from time to time. Any changes to the policy will be posted on our website and will take effect immediately upon posting.</p>
+        </div>
+    </section>
+{% endblock%}

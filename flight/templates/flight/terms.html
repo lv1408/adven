@@ -1,0 +1,24 @@
+{% extends 'flight/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>Terms and Conditions </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/privacy-policy.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <section class="privacybanner-section">
+            <img src="{% static 'img/about_us.PNG' %}" alt="Privacy Policy" class="privacybannerimg">
+    </section>
+    <section class="section section1">
+        <div class="container">
+            <p>Adventure Awaits understands its valuable customer's concerns for privacy and undertakes several measures of protecting and maintaining their personal information that is being shared with us!</p>
+            <p><b>Booking Confirmation:</b> Once a booking has been made and payment has been received, a confirmation pdf will be generated and provided at the time of booking. This pdf will include the details of the booking, such as the date, time, location, and any specific instructions or requirements.</p>
+            <p><b>Cancellation Policy:</b> Cancellations must be made at least 48 hours prior to the scheduled activity. Any cancellations made within 48 hours of the scheduled activity may not be eligible for a refund. Refunds may be issued at the discretion of the adventure sports company and may be subject to a cancellation fee.</p>
+            <p><b>Safety Requirements:</b> Participants must meet all safety requirements specified by the adventure sports company in order to participate in the activity. This may include age restrictions, weight limits, physical fitness requirements, and any other relevant safety requirements. Participants who do not meet these requirements may not be allowed to participate in the activity and may not be eligible for a refund.</p>
+            <p><b>Weather Cancellations:</b> Adventure sports activities may be cancelled or rescheduled in the event of inclement weather or other unforeseen circumstances. In the event of a cancellation due to weather or other circumstances, participants may be eligible for a refund or may be offered the option to reschedule their booking for a later date.</p>
+            <p><b>Governing Law:</b> These terms and conditions shall be governed by and construed in accordance with the laws of the jurisdiction in which the adventure sports company is located. Any disputes arising out of these terms and conditions shall be resolved through arbitration or in a court of competent jurisdiction in the same jurisdiction as the adventure sports company.</p>
+        </div>
+    </section>
+{% endblock%}
