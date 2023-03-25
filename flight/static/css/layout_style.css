@@ -19,13 +19,17 @@ body{
     transition-duration: .2s;
 }
 .nav-link:hover{
-    color: #78b3da;!important;
+    color: #0E3E71FF;!important;
     transition-duration: .2s;
 }
 .my-account .dropdown-header{
     align-content: flex-start;
 }
 
+.btn:hover{
+    color: #0e3e71;
+    transition-duration: .2s
+}
 .section{
     background-size: cover;
     background-position: center;
@@ -305,7 +309,7 @@ footer .container > div{
     height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: #073669;
     border-radius: 5px;
 }
 

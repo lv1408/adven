@@ -7,18 +7,18 @@
 {% endblock %}
 
 {% block script %}
-    <script type"text/javascript" src="{% static 'js/signup.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/signup.js' %}"> </script>
 {% endblock %}
 
 {% block body %}
     <div class="user-box" style="margin-top: 6vh;">
         <div>
             <center>
-                <img src="{% static 'img/icon_logo.png' %}" height="35em" style="margin-bottom: 2vh;">
-                <h3>Sign up for Flight</h2><br>
+                <img src="{% static 'img/adventure-awaits.png' %}" height="50" width="100" style="margin-bottom: 2vh;">
+                <h3>Create an account</h3><br>
             </center>
         </div>
-    
+
         <form action="{% url 'register' %}" method="post" id="signin-form" style="width: 100%;margin-bottom: 5vh;"  enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
@@ -52,14 +52,15 @@
 
 
             <center>
-                <input class="btn btn-danger" type="submit" value="Sign Up" style="margin-top: 10px; width: 95%;" disabled>
+                <input class="btn btn-danger" type="submit" value="Sign Up" style="margin-top: 10px; width: 95%; background-color: #0e3e71; border-color: #0e3e71" disabled>
             </center>
         </form>
-    
+
         <div>
             <center>
                 Already have an account?&nbsp;&nbsp;<a href="{% url 'login' %}">Log in</a>
             </center>
-        </div><br><br>
+        </div>
+        <br>
     </div>
 {% endblock %}

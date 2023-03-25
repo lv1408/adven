@@ -9,10 +9,11 @@
         <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
         {% block script %}{% endblock %}
     </head>
-    <body>
+    <body style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('{% static 'img/signup-login-page.jpg'%}');">
         <div class="container">
             {% block body %}
             {% endblock %}
         </div>
+
     </body>
 </html>

@@ -10,11 +10,11 @@
     <div class="user-box">
         <div>
             <center>
-                <img src="{% static 'img/icon_logo.png' %}" height="35em" style="margin-bottom: 2vh;">
-                <h3>Log in to Flight</h3><br>
+                <img src="{% static 'img/adventure-awaits.png' %}" height="50" width="100" style="margin-bottom: 2vh;">
+                <h3>Log in</h3><br>
             </center>
         </div>
-    
+
         <form action="{% url 'login' %}" method="post" id="signin-form" style="width: 100%;margin-bottom: 5vh;">
             {% csrf_token %}
             <div class="form-group">
@@ -25,15 +25,15 @@
                 <span class="star"><small>{{message}}</small></span>
             </div>
             <center>
-                <input class="btn btn-danger" type="submit" value="Log in" style="margin-top: 10px; width: 95%;" disabled>
+                <input class="btn btn-danger" type="submit" value="Log in" style="margin-top: 10px; width: 95%; background-color: #0e3e71; border-color: #0e3e71" disabled>
             </center>
         </form>
-    
+
         <div>
             <center>
                 Don't have an account?&nbsp;&nbsp;<a href="{% url 'register' %}">Sign Up</a>
             </center>
-        </div>
+        </div><br>
     </div>
 
 
