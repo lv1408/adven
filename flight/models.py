@@ -18,6 +18,13 @@ class Place(models.Model):
     def __str__(self):
         return f"{self.city}, {self.country} ({self.code})"
 
+class adven_place(models.Model):
+    city = models.CharField(max_length=64)
+    code = models.CharField(max_length=3)
+    country = models.CharField(max_length=64)
+
+    def __str__(self):
+        return f"{self.city}, {self.country} ({self.code})"
 
 class Week(models.Model):
     number = models.IntegerField()
@@ -43,28 +50,21 @@ class Flight(models.Model):
     def __str__(self):
         return f"{self.id}: {self.origin} to {self.destination}"
 
-class adven_place(models.Model):
-    city = models.CharField(max_length=64)
-    code = models.CharField(max_length=3)
-    country = models.CharField(max_length=64)
-
-    def __str__(self):
-        return f"{self.city}, {self.country} ({self.code})"
-
+# bookings
 class adven_booking(models.Model):
-    origin = models.ForeignKey(adven_place, on_delete=models.CASCADE, related_name="depart")
-    destination = models.ForeignKey(adven_place, on_delete=models.CASCADE, related_name="arrival")
+    origin = models.ForeignKey(adven_place, on_delete=models.CASCADE, related_name="depart", default="1")
+    destination = models.ForeignKey(adven_place, on_delete=models.CASCADE, related_name="dest")
     check_in_timing = models.TimeField(auto_now=False, auto_now_add=False)
-    check_in_day = models.ManyToManyField(Week, related_name="adven_day")
+    check_in_day = models.ManyToManyField(Week, related_name="checkin_day")
     duration = models.DurationField(null=True)
     check_out_time = models.TimeField(auto_now=False, auto_now_add=False)
-    adven = models.CharField(max_length=64)
     resort = models.CharField(max_length=64)
+    adven = models.CharField(max_length=64)
     regular_fare = models.FloatField(null=True)
     premium_fare = models.FloatField(null=True)
 
     def __str__(self):
-        return f"{self.id}: {self.origin} to {self.destination}"
+        return f"{self.id}: {self.origin} for {self.adven}"
 
 GENDER = (
     ('male','MALE'),    #(actual_value, human_readable_value)
@@ -89,15 +89,15 @@ SEAT_CLASS = (
     ('first', 'First')
 )
 
+SERVICE_CLASS = (
+    ('regular', 'Regular'),
+    ('premium', 'Premium')
+)
+
 TICKET_STATUS =(
     ('PENDING', 'Pending'),
     ('CONFIRMED', 'Confirmed'),
     ('CANCELLED', 'Cancelled')
-)
-
-SERVICE_CLASS = (
-    ('regular', 'Regular'),
-    ('premium', 'Premium')
 )
 
 ADVEN_BOOKING_STATUS =(
@@ -131,6 +131,7 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.ref_no
+
 
 class adven_Ticket_Model(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="user_bookings", blank=True, null=True)

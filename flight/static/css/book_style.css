@@ -16,7 +16,6 @@ h5{
     background: -webkit-linear-gradient(right, #0e3e71, #0e3e71);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-color: #0E3E71FF !important;
 }
 
 .ticket-details, .traveller-details, .seat-map, .price-details, .coupon-code{

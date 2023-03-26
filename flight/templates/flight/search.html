@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-    <title>Search Adventures</title>
+    <title>Search Adventure</title>
     <link rel="stylesheet" href="{% static 'css/search_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/search2_style.css' %}">
     <!--<script src="{% static 'js/search.js' %}"></script>-->
@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="trip-places">
                     <div class="from-div text-align-left">
-                        <div class="small-label">Coming From</div>
+                        <div class="small-label">Comming From</div>
                         <div class="white">{{origin.city}} ({{origin.code}})</div>
 {#                        <div class="white">{{adven}}</div>#}
                     </div>
@@ -72,7 +72,7 @@
 {#                        <input type="hidden" name="Check-Out-Date" value='{{return_date|date:"Y-m-d"}}'>#}
 {#                        <input type="hidden" name="ServiceClass" value="{{service|lower}}">#}
 {#                        <input type="hidden" name="TripType" id="trip-identifier" value="{{trip_type}}">#}
-                        <button class="btn spl-btn" type="submit" style="background-color: #0e3e71; border-color: #0e3e71" >Re-Search</button>
+                        <button class="btn spl-btn" type="submit" style="background-color: #0e3e71; border-color: #0e3e71">Re-Search</button>
                     </form>
                 </div>
             </div>
@@ -100,16 +100,14 @@
                                             <input type="range" class="form-control-range" min="{{min_price}}" max="{{max_price}}" value="{{max_price}}" oninput="filter()">
                                             <div class="price-range-output">
                                                 <div class="initial-price-range">
-                                                    <span class="currency-symbol">₹</span>
                                                     <span class="initial-price-value">{{min_price}}</span>
                                                 </div>
                                                 <div class="final-price-range">
-                                                    <span class="currency-symbol">₹</span>
                                                     <span class="final-price-value"></span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><!---->
+                                    </div>
                                 </div>
                                 <div class="clr-filter-div">
                                     <center>
@@ -130,7 +128,7 @@
                                         Resort Check In Time
                                         <span></span>
                                     </div>
-                                    <div class="flight-stops">Adventure Duration</div>
+                                    <div class="flight-stops">Adven Duration</div>
                                     <div class="flight-destination-time sort-arrive">
                                         Resort Check Out Time
                                         <span></span>
@@ -151,7 +149,9 @@
                                         <div class="each-flight-div" onclick="media_click(this)">
                                             <div class="flight-company">
                                                 <div class="flight-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1.5em" height="1.3em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 440 384"><path d="M14 335h405v43H14v-43zm417.5-199.5q3.5 12.5-3 24T409 175l-114 30l-92 25l-114 30l-34 10l-16-29l-39-67l31-9l42 33l106-28L91 17l41-11l147 137l113-30q13-4 24.5 3t15 19.5z" fill="#434445"/><rect x="0" y="0" width="440" height="384" fill="rgba(0, 0, 0, 0)" /></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                            <path d="M21.7 11.3l-9-9C12.5 2.1 12.3 2 12 2s-.5.1-.7.3l-9 9C2.1 11.5 2 11.7 2 12s.1.5.3.7l9 9c.2.2.4.3.7.3s.5-.1.7-.3l9-9c.2-.2.3-.4.3-.7s-.1-.5-.3-.7zM12 18.5c-3.6 0-6.5-2.9-6.5-6.5S8.4 5.5 12 5.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5zm0-11c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5z"/>
+                                                    </svg>
                                                 </div>
                                                 <div class="company-details">
                                                     <div class="company-name">{{book.adven}}</div>
@@ -190,11 +190,11 @@
                                                             <span>
 {#                                                                {% if service == 'Regular' %}{{book.regular_fare}}{% endif %}#}
 {#                                                                {% if service == 'Premium' %}{{book.premium_fare}}{% endif %}#}
-                                                                USD $ {{ price }}
+                                                                USD $ {{ book.regular_fare }}
                                                             </span>
                                                             {% elif trip_type == '2' %}
                                                             <span>
-                                                                CAD $ {{ price }}
+                                                                CAD $ {{ book.regular_fare }}
                                                             </span>
 {#                                                            {% elif trip_type == 2 %}#}
 {#                                                            <span>#}

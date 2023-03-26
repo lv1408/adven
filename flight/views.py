@@ -9,8 +9,7 @@ import math
 from .models import *
 from capstone.utils import render_to_pdf, createticket
 
-
-#Fee and Surcharge variable
+# Fee and Surcharge variable
 from .constant import FEE, USD, AUD, CAD, GBT, EUR
 from flight.utils import createWeekDays, addPlaces, addDomesticFlights, addInternationalFlights
 
@@ -29,11 +28,12 @@ try:
 except:
     pass
 
+
 # Create your views here.
 
 def index(request):
     min_date = f"{datetime.now().date().year}-{datetime.now().date().month}-{datetime.now().date().day}"
-    max_date = f"{datetime.now().date().year if (datetime.now().date().month+3)<=12 else datetime.now().date().year+1}-{(datetime.now().date().month + 3) if (datetime.now().date().month+3)<=12 else (datetime.now().date().month+3-12)}-{datetime.now().date().day}"
+    max_date = f"{datetime.now().date().year if (datetime.now().date().month + 3) <= 12 else datetime.now().date().year + 1}-{(datetime.now().date().month + 3) if (datetime.now().date().month + 3) <= 12 else (datetime.now().date().month + 3 - 12)}-{datetime.now().date().day}"
     if request.method == 'POST':
         origin = request.POST.get('Origin')
         destination = request.POST.get('Destination')
@@ -42,33 +42,34 @@ def index(request):
         trip_type = request.POST.get('TripType')
         return_date = request.POST.get('ReturnDate')
 
-        if(trip_type == '1'):
+        if (trip_type == '1'):
             return render(request, 'flight/index.html', {
-            'min_date': min_date,
-            'max_date': max_date,
-            'origin': origin,
-            'destination': destination,
-            'depart_date': depart_date,
-            'seat': seat.lower(),
-            'trip_type': trip_type,
-            'return_date': return_date
-        })
-        elif(trip_type == '2'):
+                'min_date': min_date,
+                'max_date': max_date,
+                'origin': origin,
+                'destination': destination,
+                'depart_date': depart_date,
+                'seat': seat.lower(),
+                'trip_type': trip_type,
+                'return_date': return_date
+            })
+        elif (trip_type == '2'):
             return render(request, 'flight/index.html', {
-            'min_date': min_date,
-            'max_date': max_date,
-            'origin': origin,
-            'destination': destination,
-            'depart_date': depart_date,
-            'seat': seat.lower(),
-            'trip_type': trip_type,
-            'return_date': return_date
-        })
+                'min_date': min_date,
+                'max_date': max_date,
+                'origin': origin,
+                'destination': destination,
+                'depart_date': depart_date,
+                'seat': seat.lower(),
+                'trip_type': trip_type,
+                'return_date': return_date
+            })
     else:
         return render(request, 'flight/index.html', {
             'min_date': min_date,
             'max_date': max_date
         })
+
 
 def login_view(request):
     if request.method == "POST":
@@ -78,7 +79,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
-            
+
         else:
             return render(request, "flight/login.html", {
                 "message": "Invalid username and/or password."
@@ -88,6 +89,7 @@ def login_view(request):
             return HttpResponseRedirect(reverse('index'))
         else:
             return render(request, "flight/login.html")
+
 
 def register_view(request):
     if request.method == "POST":
@@ -119,18 +121,23 @@ def register_view(request):
     else:
         return render(request, "flight/register.html")
 
+
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
+
 
 def query(request, q):
     places = Place.objects.all()
     filters = []
     q = q.lower()
     for place in places:
-        if (q in place.city.lower()) or (q in place.airport.lower()) or (q in place.code.lower()) or (q in place.country.lower()):
+        if (q in place.city.lower()) or (q in place.airport.lower()) or (q in place.code.lower()) or (
+                q in place.country.lower()):
             filters.append(place)
-    return JsonResponse([{'code':place.code, 'city':place.city, 'country': place.country} for place in filters], safe=False)
+    return JsonResponse([{'code': place.code, 'city': place.city, 'country': place.country} for place in filters],
+                        safe=False)
+
 
 @csrf_exempt
 def booking(request):
@@ -146,20 +153,21 @@ def booking(request):
     adven_day = Week.objects.get(number=depart_date.weekday())
     destination = adven_place.objects.get(code=d_place.upper())
     origin = adven_place.objects.get(code=o_place.upper())
-    print("----------------------->",origin)
+    print("----------------------->", origin)
     if service == 'regular':
-        books = adven_booking.objects.filter(check_in_day=adven_day,origin=origin,destination=destination).exclude(regular_fare=0).order_by('regular_fare')
+        books = adven_booking.objects.filter(check_in_day=adven_day, origin=origin, destination=destination).exclude(
+            regular_fare=0).order_by('regular_fare')
         print("----------------------->", books)
-        price = adven_booking.objects.first().regular_fare
         try:
             max_price = books.last().regular_fare
             min_price = books.first().regular_fare
         except:
             max_price = 0
             min_price = 0
-                
+
     elif service == 'premium':
-        books = adven_booking.objects.filter(check_in_day=adven_day,origin=origin,destination=destination).exclude(premium_fare=0).order_by('premium_fare')
+        books = adven_booking.objects.filter(check_in_day=adven_day, origin=origin, destination=destination).exclude(
+            premium_fare=0).order_by('premium_fare')
         print("--------SERVICE--------------->", books)
         price = adven_booking.objects.first().premium_fare
         try:
@@ -169,9 +177,9 @@ def booking(request):
             max_price = 0
             min_price = 0
 
-    #print(calendar.day_name[depart_date.weekday()])
+    # print(calendar.day_name[depart_date.weekday()])
     if trip_type == '1':
-        usd_price = price
+        # usd_price = price
         print("----------1------------->", books)
         return render(request, "flight/search.html", {
             'allbooks': books,
@@ -181,12 +189,14 @@ def booking(request):
             'trip_type': trip_type,
             'depart_date': depart_date,
             'return_date': return_date,
-            'max_price': math.ceil(max_price/100)*100,
-            'min_price': math.floor(min_price/100)*100,
-            'price': usd_price
+            'max_price': math.ceil(max_price / 100) * 100,
+            'min_price': math.floor(min_price / 100) * 100,
+            # 'price': usd_price
         })
     else:
-        cad_price = price * 1.37
+        for book in books:
+            book.regular_fare = book.regular_fare * CAD
+            book.premium_fare = book.premium_fare * CAD
         print("----------2------------->", books)
         return render(request, "flight/search.html", {
             'allbooks': books,
@@ -196,9 +206,9 @@ def booking(request):
             'trip_type': trip_type,
             'depart_date': depart_date,
             'return_date': return_date,
-            'max_price': (math.ceil(max_price/100)*100)*1.35,
-            'min_price': (math.floor(min_price/100)*100)*1.35,
-            'price': cad_price
+            'max_price': (math.ceil(max_price / 100) * 100) * 1.35,
+            'min_price': (math.floor(min_price / 100) * 100) * 1.35,
+            #'price': cad_price
         })
 
 def review(request):
@@ -246,6 +256,8 @@ def review(request):
             })
     else:
         return HttpResponseRedirect(reverse("login"))
+
+
 
 def book(request):
     if request.method == 'POST':
@@ -351,7 +363,6 @@ def get_ticket(request):
     pdf = render_to_pdf('flight/ticket.html', data)
     return HttpResponse(pdf, content_type='application/pdf')
 
-
 def bookings(request):
     if request.user.is_authenticated:
         tickets = adven_Ticket_Model.objects.filter(user=request.user).order_by('-booking_date')
@@ -361,6 +372,7 @@ def bookings(request):
         })
     else:
         return HttpResponseRedirect(reverse('login'))
+
 
 @csrf_exempt
 def cancel_ticket(request):
@@ -388,6 +400,7 @@ def cancel_ticket(request):
     else:
         return HttpResponse("Method must be POST.")
 
+
 def resume_booking(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
@@ -405,20 +418,22 @@ def resume_booking(request):
     else:
         return HttpResponse("Method must be post.")
 
+
 def contact(request):
     return render(request, 'flight/contact.html')
+
 
 def privacy_policy(request):
     return render(request, 'flight/privacy-policy.html')
 
+
 def terms_and_conditions(request):
     return render(request, 'flight/terms.html')
 
-def about_us(request):
-    return render(request, 'flight/about.html')
 
 def about_us(request):
     return render(request, 'flight/about.html')
+
 
 def mountain_adven(request):
     return render(request, 'flight/mountain.html')

@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 
 from .models import *
@@ -11,6 +10,7 @@ admin.site.register(Flight)
 admin.site.register(Passenger)
 admin.site.register(User)
 admin.site.register(Ticket)
-admin.site.register(adven_booking)
+
 admin.site.register(adven_place)
+admin.site.register(adven_booking)
 admin.site.register(adven_Ticket_Model)
