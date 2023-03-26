@@ -1,6 +1,6 @@
 FEE = 100.0
 USD = 1
-CAD = 1.30
+CAD = 1.37
 AUD = 1.50
 GBT = 0.82
 EUR = 0.93

@@ -439,7 +439,7 @@
     border-radius:50px;
     position:relative;
   }
-  
+
   .tabs a{
     text-decoration:none;
     color: #777;
@@ -449,16 +449,16 @@
     position:relative;
     transition-duration:0.6s;
   }
-  
+
   .tabs a.active-div{
     color:#fff;
   }
-  
-  
+
+
   .tabs a i{
     margin-right:5px;
   }
-  
+
   .tabs .selector{
     height:100%;
     display:inline-block;
@@ -468,7 +468,7 @@
     border-radius:50px;
     transition-duration:0.6s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
+
     background: #2a8bc0;
     background: linear-gradient(45deg, #0e3e71 0%, #2a8bc0 100%);
     /*background: #05abe0;*/
