@@ -10,3 +10,6 @@ admin.site.register(Flight)
 admin.site.register(Passenger)
 admin.site.register(User)
 admin.site.register(Ticket)
+
+admin.site.register(Places)
+admin.site.register(Booking)

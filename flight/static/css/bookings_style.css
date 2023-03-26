@@ -20,9 +20,10 @@ body{
     border-radius: 5px;
 }
 .each-booking-div:hover{
-    box-shadow: 0 0 5px rgb(14, 62, 113);
     border-color: rgb(120, 179, 218);
-    background-color: rgb(120, 179, 218);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 15px rgb(14, 62, 113);
+    cursor: pointer;
 }
 .btnp{
     padding: .15rem .6rem;
@@ -56,7 +57,7 @@ body{
     background-color: orange;
 }
 .btnp:hover, .btnp:focus, .btnp:active{
-    background-color: rgb(120, 179, 218) !important;
+    background-color: rgb(193, 222, 241) !important;
 }
 
 /*
@@ -177,13 +178,13 @@ body{
 }
 
 .cbtn:hover, .cbtn:focus, .cbtn:active{
-    color: #78b3da !important;
+    color: #0e3e71 !important;
 }
 
 .pbtn:hover, .pbtn:focus, .pbtn:active{
-    color: #78b3da !important;
+    color: #0e3e71 !important;
 }
 
 .rbtn:hover, .rbtn:focus, .rbtn:active{
-    color: #78b3da !important;
+    color: #0e3e71 !important;
 }
