@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block head %}
-    <title>Book | Flight</title>
+    <title>Book an adventure</title>
     <link rel="stylesheet" href="{% static 'css/book_style.css' %}">
     <script type="text/javascript" src="{% static 'js/book.js' %}"></script>
 {% endblock %}
 
 {% block body %}
-    <section class="section section1">
+    <section class="section section1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('{% static 'img/contact-us.jpg'%}');">
         <form action="{% url 'book' %}" onsubmit="return book_submit()" method="POST">
             {% csrf_token %}
             <input type="hidden" name="flight1" value="{{flight1.id}}">
@@ -95,14 +95,13 @@
 
                         <svg width="1em" height="1.5em" viewBox="0 3 16 16" class="bi bi-bag" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"/>
-                        </svg> 
-
-                        30 Kgs Check-in, 7 Kgs Cabin
+                        </svg>
+                        All amenities are charged as other charges!!!!
                     </div>
                 </div>
                 <div class="traveller-details">
                     <div class="traveller-head">
-                        <h5>Contact Information</h5>
+                        <h5>Contact Details</h5>
                     </div>
                     <hr>
                     
@@ -350,8 +349,8 @@
                 </div>
                 <div class="traveller-details individual-traveller-div">
                     <div class="traveller-head">
-                        <h5>Passenger Details</h5>
-                        <h6><span>0</span> Passengers</h6>
+                        <h5>Customer Details</h5>
+                        <h6><span>0</span> Customers</h6>
                     </div>
                     <hr>
                     <input type="hidden" id="p-count" name="passengersCount" value="0">
@@ -360,7 +359,7 @@
                     <div class="row each-traveller no-traveller">
                         <div>
                             <span class="traveller-name"></span>
-                            You have not added any adults to the list
+                            Do not have any one on customer list
                         </div>
                     </div>
                     <div class="row add-traveller-div collapse" id="collapseExample">
@@ -389,7 +388,7 @@
                                 </label>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary btn-light" style="margin-right: auto;" onclick="add_traveller()">Add</button>
+                        <button type="button" class="btn btn-primary btn-light" style="margin-right: auto; background-color: #0e3e71; border-color: #0e3e71; color: white; " onclick="add_traveller()">Add</button>
                     </div>
                     <hr>
                     <div class="add-traveller">
@@ -397,7 +396,13 @@
                     </div>
                 </div>
                 <div class="payment-btn" style="background-color: transparent;">
-                    <button type="submit" class="btn btn-primary btn-danger">Proceed to payment</button>
+                    <button type="submit" class="btn" style="background-color: #0e3e71; border-color: #0e3e71; color:white;" >Proceed to payment
+                     <style>
+                        .button:hover, .button:active{
+                            color: #78b3da
+                        }
+                     </style>
+                    </button>
                 </div>
                 </div>
                 <div class="col-4">
@@ -483,7 +488,7 @@
                             </div>
                             <div class="col coupon-apply" style="padding: 10px 10px 10px 0px">
                                 <center>
-                                    <button type="button" class="btn btn-primary btn-danger">Apply</button>
+                                    <button type="button" class="btn btn-primary btn-danger" style="background-color: #0e3e71; border-color: #0e3e71; color:white;">Apply</button>
                                 </center>
                             </div>
                         </div>
@@ -491,7 +496,7 @@
                 </div>
                 <div class="col media-payment-btn">
                     <div>
-                        <button type="submit" class="btn btn-primary btn-danger">Proceed to payment</button>
+                        <button type="submit" class="btn btn-primary btn-danger" style="background-color: #0e3e71; border-color: #0e3e71; color:white;">Proceed to payment</button>
                     </div>
                 </div>
             </div>

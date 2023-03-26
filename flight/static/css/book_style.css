@@ -13,7 +13,7 @@
 }
 
 h5{
-    background: -webkit-linear-gradient(right, crimson, #b8017b);
+    background: -webkit-linear-gradient(right, #0e3e71, #0e3e71);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -107,7 +107,7 @@ h5{
     font-size: .9em;
 }
 .add-traveller-btn:hover{
-    color: blue;
+    color: #78b3da;
 }
 .add-traveller-btn:focus, .add-traveller-btn:active{
     box-shadow: none;
@@ -122,7 +122,7 @@ h5{
     box-shadow: none;
 }
 .delete-traveller button:hover{
-    color: red;
+    color: #0e3e71;
 }
 
 .contact-details-div{
@@ -183,6 +183,9 @@ h5{
     justify-content: center;
 }
 
+.btn button:hover button:active{
+    color: #78b3da;
+}
 .base-fare, .surcharges, .other-service, .total-fare{
     margin: 13px 10px;
     justify-content: space-between;

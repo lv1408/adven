@@ -1,7 +1,6 @@
 .section1{
     display: flex;
     align-content: center;
-    background-color: rgb(250, 250, 250);
 }
 
 .payment-box{
@@ -9,7 +8,9 @@
     border-radius: 5px;
     font-weight: bold;
     width: 40%;
-    margin: auto;
+    margin-top: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
     background-color: #fff;
 }
@@ -46,7 +47,7 @@
     padding: 15px;
 }
 input{
-    box-shadow: inset 0 0 3px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 3px rgb(14, 62, 113);
 }
 .form-group{
     width: 100%;

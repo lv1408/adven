@@ -23,7 +23,7 @@ section{
 
 input, textarea{
     outline: none;
-    border: 1px solid #dbdfe2;
+    border: 1px solid #0e3e71;
     color: #343a3f;
     border-radius: 6px;
     height: 56px;
@@ -67,7 +67,7 @@ button{
 }
 
 .row-fluid a{
-    color: rgb(31 37 89 / 90%)!important;
+    color: rgb(14, 62, 113) !important;
 }
 
 

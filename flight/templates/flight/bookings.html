@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block head %}
-    <title>Bookings | Flight</title>
+    <title>Bookings</title>
     <script type="text/javascript" src="{% static 'js/bookings.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/bookings_style.css' %}">
 {% endblock head %}
 
 {% block body %}
-    <section class="section section1">
+    <section class="section section1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url({% static 'img/contact-us.jpg' %})">
         <div class="container">
             {% if tickets %}
                 {% for ticket in tickets %}
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="col-2 middle-div">
-                            <div style="font-size: 1.2em; color: #945937;">{{ticket.ref_no}}</div>
+                            <div style="font-size: 1.2em; color: #0e3e71;">{{ticket.ref_no}}</div>
                         </div>
                         <div class="col-2 middle-div">
                             <div>
@@ -81,7 +81,7 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <button class="btn btn-outline-danger btnp cbtn"  data-ref="{{ticket.ref_no}}" onclick="popup(this)">Cancel</button>
+                                        <button class="btn btn-outline-danger btnp cbtn" style="background-color: #0e3e71; border-color: #0e3e71; color: white;"  data-ref="{{ticket.ref_no}}" onclick="popup(this)">Cancel</button>
                                     {% endif %}
                                     {% if ticket.status == 'PENDING' %}
                                         <form action="{% url 'resumebooking' %}" method="POST">
@@ -94,7 +94,7 @@
                                             </button>
                                         </form>
 
-                                        <button type="button" class="btn btn-outline-danger btnp cbtn" data-ref="{{ticket.ref_no}}" onclick="popup(this)">Cancel</button>
+                                        <button type="button" class="btn btn-outline-danger btnp cbtn" style="background-color: #0e3e71; border-color: #0e3e71; color: white;" data-ref="{{ticket.ref_no}}" onclick="popup(this)">Cancel</button>
                                     {% endif %}
                                     {% if ticket.status == 'CANCELLED' %}
                                     {% endif %}

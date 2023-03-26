@@ -1,9 +1,9 @@
-{% extends 'flight/layout.html' %}
+ {% extends 'flight/layout.html' %}
 
 {% load static %}
 
 {% block head %}
-    <title>Search | Flight</title>
+    <title>Search Adventure</title>
     <link rel="stylesheet" href="{% static 'css/search_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/search2_style.css' %}">
     <!--<script src="{% static 'js/search.js' %}"></script>-->
@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="section section1">
+    <section class="section section1" >
         <div class="query-data-div">
             <div class="container">
                 <div class="trip-places">
@@ -69,7 +69,7 @@
                         <input type="hidden" name="ReturnDate" value='{{return_date|date:"Y-m-d"}}'>
                         <input type="hidden" name="SeatClass" value="{{seat|lower}}">
                         <input type="hidden" name="TripType" id="trip-identifier" value="{{trip_type}}">
-                        <button class="btn spl-btn" type="submit">Modify Search</button>
+                        <button class="btn spl-btn" type="submit" style="background-color: #0e3e71; border-color: #0e3e71">Search Again</button>
                     </form>
                 </div>
             </div>
@@ -159,7 +159,7 @@
                 </div>-->
             </div>
         {% endif %}
-        <div class="query-result-div">
+        <div class="query-result-div" >
             <div class="container">
                 <div class="row">
                     {% if flights %}
@@ -409,9 +409,8 @@
                                                             <input type="hidden" name="flight1Id" value="{{flight.id}}">
                                                             <input type="hidden" name="flight1Date", value="{{depart_date|date:'d-m-Y'}}">
                                                             <input type="hidden" name="seatClass" value="{{seat}}">
-                                                            <button class="btn btn-primary btn-danger o-b" type="submit">
-                                                            
-                                                                Book Flight <!--&#8594;-->
+                                                            <button class="btn btn-primary btn-danger o-b" style="background-color: #0e3e71; border-color: #0e3e71" type="submit">
+                                                                Book Now <!--&#8594;-->
                                                             </button>
                                                         </form>
                                                     {% endif %}
@@ -434,9 +433,9 @@
                                     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                                 </svg>
                                 <br><br>
-                                <h3>Sorry, No Flight for this Search</h3>
+                                <h3>Sorry, No adventures available now for this Search</h3>
                                 <p>
-                                    We cannnot find any flights for the cabin class of your search. Please modify your search criteria and try again.
+                                    We can not find any adventures for the service of your search. Please modify your search criteria and try again.
                                 </p>
                             </div>
                         </div>

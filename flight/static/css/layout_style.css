@@ -11,7 +11,7 @@ body{
     padding-right: 0px;
 }
 .dropdown-menu{
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    box-shadow: 0 0 10px rgb(14, 62, 113);
 }
 .navbar{
     padding: .7rem 1.2rem;
@@ -26,8 +26,8 @@ body{
     align-content: flex-start;
 }
 
-.btn:hover{
-    color: #0e3e71;
+.btn:hover :active{
+    color: #78b3da;
     transition-duration: .2s
 }
 .section{
@@ -184,7 +184,7 @@ body{
 }
 .single_destination:hover{
     transform: translateY(-10px);
-    box-shadow: 0 12px 15px rgba(0,0,0,.2);
+    box-shadow: 0 12px 15px rgb(14, 62, 113);
     cursor: pointer;
 }
 .single_destination .thumb img{
@@ -220,7 +220,7 @@ body{
     text-decoration: none;
 }
 .single_destination:hover content a{
-    background-color: red;
+    background-color: #78b3da;
 }
 
 footer{
@@ -260,13 +260,13 @@ footer .container > div{
 }
 .footer-links{
     white-space: nowrap;
-    color: #78b3da;
+    color: #ffffff;
 
     text-align: center;
     transition: all 0.1s ease 0s;
 }
 .footer-links:hover{
-    color: #96c2d9;
+    color: #78b3da;
 }
 
 #places_from, #places_to{
@@ -277,7 +277,7 @@ footer .container > div{
     margin-left: 10px;
     margin-right: 10px;
     background-color: #fff;
-    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    box-shadow: 0 0 5px rgb(14, 62, 113);
     cursor: pointer;
     max-height: 70%;
     overflow: auto;
@@ -288,10 +288,10 @@ footer .container > div{
     transition-duration: .2s;
 }
 .each_places_from_list:hover, .each_places_to_list:hover{
-    background-color: #f2f2f2;
+    background-color: #78b3da;
 }
 .each_places_from_list:active, .each_places_to_list:active{
-    background-color: #e5e5e5;
+    background-color: #78b3da;
 }
 .places_box{
     display: none;

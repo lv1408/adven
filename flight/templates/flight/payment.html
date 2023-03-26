@@ -3,12 +3,12 @@
 {% load static %}
 
 {% block head %}
-    <title>Payment | Flight</title>
+    <title>Payment</title>
     <link rel="stylesheet" href="{% static 'css/payment_style.css' %}">
 {% endblock %}
 
 {% block body %}
-    <section class="section section1">
+    <section class="section section1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url({% static 'img/contact-us.jpg' %})">
         <div class="container">
             <div class="payment-box">
                 <div class="payment-box-head-div">
@@ -133,14 +133,11 @@
                             </div>
                         </div>
                         <div class="payment-btn">
-                            <button class="btn btn-primary btn-danger">Make payment</button>
+                            <button class="btn btn-primary btn-danger" style="background-color: #0e3e71; border-color: #0e3e71">Make payment</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-
-
     </section>
 {% endblock %}

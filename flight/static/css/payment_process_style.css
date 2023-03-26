@@ -20,7 +20,7 @@
 .header-before{
     font-size: 1.6em;
     text-align: center;
-    color: orange;
+    color: #021e3d;
 }
 
 .below-header{
@@ -52,11 +52,11 @@
     animation-name: enlarge;
     animation-duration: .5s;
     animation-fill-mode: forwards;
-    color: rgb(32, 227, 100);
+    color: #78b3da;
     margin: auto;
 }
 .header-after{
-    color: green;
+    color: #0e3e71;
     font-size: 1.5em;
     font-weight: 500;
     text-align: center;
@@ -91,11 +91,11 @@
     animation-name: enlarge;
     animation-duration: .5s;
     animation-fill-mode: forwards;
-    color: rgb(215, 0, 0);
+    color: #0e3e71;
     margin: auto;
 }
 .star{
-    color: rgb(200, 0, 0);
+    color: #0e3e71;
 }
 
 
@@ -108,15 +108,18 @@
         margin-top: 0;
     }
     .header-before, .header-after{
-        font-size: 1.3em;
+        font-size: larger;
         padding-left: 5px;
         padding-right: 5px;
+        color: #0e3e71;
     }
     .header-after{
         margin-top: 60px;
+        color: #0e3e71;
     }
     .below-header{
         font-size: .9em;
+        color: #78b3da;
     }
     .details-div{
         font-size: .9em;

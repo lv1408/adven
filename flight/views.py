@@ -223,7 +223,7 @@ def flight(request):
         return render(request, "flight/search.html", {
             'flights': flights,
             'origin': origin,
-            'adventure': adventure,
+            'flight': flight,
             'seat': seat.capitalize(),
             'trip_type': trip_type,
             'depart_date': depart_date,

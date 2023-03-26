@@ -15,14 +15,14 @@ body{
     margin: 5px auto 8px auto;
     transition-duration: .4s;
     padding: 10px 15px;
-    background-color: #fff;
-    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
     border-radius: 5px;
 }
 .each-booking-div:hover{
-    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
-    border-color: rgb(246,247,247);
-    background-color: rgb(246,247,247);
+    box-shadow: 0 0 5px rgb(14, 62, 113);
+    border-color: rgb(120, 179, 218);
+    background-color: rgb(120, 179, 218);
 }
 .btnp{
     padding: .15rem .6rem;
@@ -56,7 +56,7 @@ body{
     background-color: orange;
 }
 .btnp:hover, .btnp:focus, .btnp:active{
-    background-color: rgb(246,247,247)!important;
+    background-color: rgb(120, 179, 218) !important;
 }
 
 /*
@@ -177,13 +177,13 @@ body{
 }
 
 .cbtn:hover, .cbtn:focus, .cbtn:active{
-    color: #dc3545!important;
+    color: #78b3da !important;
 }
 
 .pbtn:hover, .pbtn:focus, .pbtn:active{
-    color: #17a2b8!important;
+    color: #78b3da !important;
 }
 
 .rbtn:hover, .rbtn:focus, .rbtn:active{
-    color: #007bff!important;
+    color: #78b3da !important;
 }
