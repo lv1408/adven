@@ -149,11 +149,12 @@
     cursor: pointer;
 }
 
-
 .each-flight-div{
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;/*
+    padding: 15px 20px;
+    align-content: flex-end;
+    flex-direction: column-reverse;/*
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);*/
 }

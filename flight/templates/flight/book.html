@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="section section1">
+    <section class="section section1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url({% static 'img/contact-us.jpg' %}); ">
         <form action="{% url 'book' %}" onsubmit="return book_submit()" method="POST">
             {% csrf_token %}
             <input type="hidden" name="advenid" value="{{adven.id}}">
@@ -20,7 +20,7 @@
 
             <div class="row main-row">
                 <div class="col-8">
-                <div class="ticket-details">
+                <div class="ticket-details" style="background-color: white;">
                     <h5>Booking Details</h5>
                     <hr>
                     <div class="media-airline">
@@ -55,14 +55,14 @@
                     </div>
 
                     <hr>
-                    <div class="baggage-details">
+                    <div class="baggage-details" style="background-color: white;">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path d="M18 3H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H6V5h12v14zm-6.5-3c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm4-4.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm0-4c-.8 0-1.5-.7-1.5-1.5S14.7 6 15.5 6 17 6.7 17 7.5 16.3 9 15.5 9zm-8 0c-.8 0-1.5-.7-1.5-1.5S6.7 6 7.5 6 9 6.7 9 7.5 8.3 9 7.5 9z"/>
                         </svg>
                      All extra charges are included within the total fare with your selected currency.
                     </div>
                 </div>
-                <div class="traveller-details">
+                <div class="traveller-details" style="background-color: white;">
                     <div class="traveller-head">
                         <h5>Contact Details</h5>
                     </div>
@@ -306,11 +306,11 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="send-email">
+                    <div class="send-email" style="background-color: white;" >
                         &nbsp;
                     </div>
                 </div>
-                <div class="traveller-details individual-traveller-div">
+                <div class="traveller-details individual-traveller-div" style="background-color: white;">
                     <div class="traveller-head">
                         <h5>Customer Details</h5>
                         <h6><span>0</span> Customers</h6>
@@ -358,7 +358,7 @@
                         <button class="add-traveller-btn text-uppercase btn"  type="button" data-toggle="collapse" data-target="#collapseExample">+ ADD ADULT</button>
                     </div>
                 </div>
-                <div class="payment-btn" style="background-color: transparent;">
+                <div class="payment-btn" style="background-color: #0e3e71;">
                     <button type="submit" class="btn " style="background-color: #0e3e71; border-color: #0e3e71; color:white;">Proceed to payment</button>
                 </div>
                 </div>
@@ -390,7 +390,7 @@
                                             {{cad_regular_fare}}
                                         {% endif %}"
                                     >
-                                {% elif seat == 'Premium' %}
+                                {% elif service == 'Premium' %}
                                      <span>
                                         {% if trip_types == '1' %}
                                            {{usd_premium_fare}}

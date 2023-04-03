@@ -13,24 +13,7 @@ from capstone.utils import render_to_pdf, createticket
 from .constant import FEE, USD, AUD, CAD, GBT, EUR
 from flight.utils import createWeekDays, addPlaces, addDomesticFlights, addInternationalFlights
 
-try:
-    if len(Week.objects.all()) == 0:
-        createWeekDays()
-
-    if len(Place.objects.all()) == 0:
-        addPlaces()
-
-    if len(Flight.objects.all()) == 0:
-        print("Do you want to add flights in the Database? (y/n)")
-        if input().lower() in ['y', 'yes']:
-            addDomesticFlights()
-            addInternationalFlights()
-except:
-    pass
-
-
 # Create your views here.
-
 def index(request):
     min_date = f"{datetime.now().date().year}-{datetime.now().date().month}-{datetime.now().date().day}"
     max_date = f"{datetime.now().date().year if (datetime.now().date().month + 3) <= 12 else datetime.now().date().year + 1}-{(datetime.now().date().month + 3) if (datetime.now().date().month + 3) <= 12 else (datetime.now().date().month + 3 - 12)}-{datetime.now().date().day}"
@@ -422,18 +405,14 @@ def resume_booking(request):
 def contact(request):
     return render(request, 'flight/contact.html')
 
-
 def privacy_policy(request):
     return render(request, 'flight/privacy-policy.html')
-
 
 def terms_and_conditions(request):
     return render(request, 'flight/terms.html')
 
-
 def about_us(request):
     return render(request, 'flight/about.html')
-
 
 def mountain_adven(request):
     return render(request, 'flight/mountain.html')

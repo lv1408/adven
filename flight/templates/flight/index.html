@@ -32,7 +32,7 @@
                         </div>
                         </div>
                         <div class="input-row">
-                            <label for="flight-from">From: </label>
+                            <label for="flight-from">Home city: </label>
                             <input type="text" name="Origin" placeholder="From" id="flight-from" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{origin | lower}}" data-list="places_from" autocomplete="off" value="{{origin | upper}}">  <!--list="places_from"-->
                             <div id="places_from" class="places_box">
                                 <div class="each_places_from_list places__list" data-value="jfk" onclick="selectplace(this)">New York (USA)</div>
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="input-row">
-                            <label for="flight_to">To: </label>
+                            <label for="flight_to">Destination city for adventures: </label>
                             <input type="text" name="Destination" placeholder="To" id="flight-to" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{destination | lower}}" data-list="places_to" autocomplete="off" value="{{destination | upper}}">
                             <div id="places_to" class="places_box">
                                 <div class="each_places_from_list places__list" data-value="jfk" onclick="selectplace(this)">New York (USA)</div>
@@ -74,15 +74,15 @@
                             </div>
                         </div>
                         <div class="input-row">
-                            <label for="depart_date">Departure Date: </label>
+                            <label for="depart_date">Check-in Date: </label>
                             <input type="date" name="DepartDate" min="{{min_date}}" max="{{max_date}}" id="depart_date" placeholder="Date" class="form-control mr-sm-2" value="{{depart_date}}">
                         </div>
                         <div class="input-row">
-                            <label for="return_date">Return Date: </label>
+                            <label for="return_date">Check-out Date: </label>
                             <input type="date" name="ReturnDate" min="{{min_date}}" max="{{max_date}}" id="return_date" placeholder="Date" class="form-control mr-sm-2" value="{{return_date}}" {% if trip_type != '2' %} disabled {% endif %}>
                         </div>
                         <div class="input-row">
-                            <label for="seat_class">Class: </label>
+                            <label for="seat_class">Service type: </label>
                             <select name="SeatClass" id="SeatType" class="form-control mr-sm-2 selectpicker">
                                 <option value="regular" {% if seat == 'regular' %}selected{% endif %}>Regular</option>
                                 <option value="premium" {% if seat == 'premium' %}selected{% endif %}>Premium</option>

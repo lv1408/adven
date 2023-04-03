@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="query-result-div">
+        <div class="query-result-div" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url({% static 'img/contact-us.jpg' %}); ">
             <div class="container">
                 <div class="row">
                     {% if allbooks %}
@@ -90,63 +90,12 @@
                                 </button>
                             </div>
                             <div class="filter">
-                                <center>
-                                    <h4>Filter Results</h4>
-                                </center>
-                                <div class="filter-box">
-                                    <div class="filter-price">
-                                        <div class="font-weight-bold">Price</div>
-                                        <div>
-                                            <input type="range" class="form-control-range" min="{{min_price}}" max="{{max_price}}" value="{{max_price}}" oninput="filter()">
-                                            <div class="price-range-output">
-                                                <div class="initial-price-range">
-                                                    <span class="initial-price-value">{{min_price}}</span>
-                                                </div>
-                                                <div class="final-price-range">
-                                                    <span class="final-price-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clr-filter-div">
-                                    <center>
-                                        <button class="btn-link">Reset Filters</button>
-                                    </center>
-                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-9 actual-result-div">
-                            {% if allbooks %}
-{#                            {% if booking %}    #}
-                                <div class="sort-div">
-                                <div class="flight-company">
-                                    <div class="sort-label">Sort By:</div>
-                                </div>
-                                <div class="flight-time">
-                                    <div class="flight-origin-time sort-depart">
-                                        Resort Check In Time
-                                        <span></span>
-                                    </div>
-                                    <div class="flight-stops">Adven Duration</div>
-                                    <div class="flight-destination-time sort-arrive">
-                                        Resort Check Out Time
-                                        <span></span>
-                                    </div>
-                                </div>
-                                <div class="flight-details">
-                                    Price
-                                    <span><!--&#8593;--><!--&#8595;--></span>
-                                </div>
-                            </div>
-                            {% endif %}
-
-                            <div id="flights_div">
+                            <div id="flights_div" style="display: flex; flex-wrap: wrap; align-content: flex-end; flex-direction: row; justify-content: space-evenly;">
                                 {% for book in allbooks %}
-{#                                {% for book in booking %}#}
-
-                                    <div class="each-flight-div-box show">
-                                        <div class="each-flight-div" onclick="media_click(this)">
+                                     <div class="each-flight-div-box show" style="background-color: white">
+                                        <div class="each-flight-div" onclick="media_click(this)" style="background-color: white" >
                                             <div class="flight-company">
                                                 <div class="flight-icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -163,9 +112,6 @@
                                                     <div class="flight-time">
                                                         <h5>({{book.check_in_timing|time:"H:i"}})</h5>
                                                     </div>
-                                                    <div class="flight-place">
-                                                        {{depart_date|date:"D, d M Y"}}
-                                                    </div>
                                                 </div>
 
                                                 <div class="flight-stops tooltip">
@@ -178,9 +124,6 @@
                                                     <div class="flight-time">
                                                         <h5>({{book.check_out_time|time:"H:i"}})</h5>
                                                     </div>
-                                                    <div class="flight-place">
-                                                        {{return_date|date:"D, d M Y"}}
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="flight-details">
@@ -190,11 +133,11 @@
                                                             <span>
 {#                                                                {% if service == 'Regular' %}{{book.regular_fare}}{% endif %}#}
 {#                                                                {% if service == 'Premium' %}{{book.premium_fare}}{% endif %}#}
-                                                                USD $ {{ book.regular_fare }}
+                                                                USD ${{ book.regular_fare }}
                                                             </span>
                                                             {% elif trip_type == '2' %}
                                                             <span>
-                                                                CAD $ {{ book.regular_fare }}
+                                                                CAD ${{ book.regular_fare }}
                                                             </span>
 {#                                                            {% elif trip_type == 2 %}#}
 {#                                                            <span>#}
@@ -214,7 +157,7 @@
                                                         {% endif %}
                                                     </h5>
                                                 </div>
-                                                <div class="flight-details-btn">
+                                                <div class="flight-details-btn" style="margin-left: 40px">
                                                         <form action="{% url 'review' %}" method="GET" style="display: flex;">
                                                             <input type="hidden" name="bookId" value="{{book.id}}">
                                                             <input type="hidden" name="bookDate", value="{{depart_date|date:'d-m-Y'}}">
@@ -222,7 +165,7 @@
                                                             <input type="hidden" name="serviceClass" value="{{service}}">
                                                             <input type="hidden" name="duration" value="{{book.duration}}">
                                                             <input type="hidden" name="trip_type" value="{{trip_type}}">
-                                                            <button class="btn btn-primary btn-danger o-b" style="background-color: #0e3e71; border-color: #0e3e71" type="submit">
+                                                            <button class="btn btn-primary btn-danger o-b" style="background-color: #0e3e71; border-color: #0e3e71;" type="submit">
                                                                 Book Now <!--&#8594;-->
                                                             </button>
                                                         </form>

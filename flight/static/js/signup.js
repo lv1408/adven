@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
     let check = [false,false,false,false,false,false];
     document.querySelectorAll(".inp").forEach(input => {
         input.addEventListener('input', () => {

@@ -9,7 +9,7 @@
 {% endblock head %}
 
 {% block body %}
-    <section class="section section1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url({% static 'img/contact-us.jpg' %})">
+    <section class="section section1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url({% static 'img/contact-us.jpg' %}); ">
         <div class="container">
             {% if tickets %}
                 {% for ticket in tickets %}
@@ -30,12 +30,12 @@
                         <div class="col-4 middle-div">
                             <div style="width:100%">
                                 <div class="row places-div" style=" display: flex;">
+                                    <div style="max-width: 100%;">{{ticket.adven.adven}} &middot; {{ticket.adven.resort}} &middot; {{ticket.passengers.count}} Customers</div>
+                                </div>
+                                <div class="row places-div" style="font-size: .8em; color: #999999; ">
                                     <div style="max-width: 45%;">{{ticket.adven.origin.city}}</div>
                                     <div>&nbsp;-&nbsp;</div>
                                     <div style="max-width: 45%;">{{ticket.adven.destination.city}}</div>
-                                </div>
-                                <div class="row places-div" style="font-size: .8em; color: #999999; ">
-                                    <div style="max-width: 100%;">{{ticket.adven.adven}} &middot; {{ticket.adven.resort}} &middot; {{ticket.passengers.count}} Customers</div>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                         <br><br>
                         <h3>Oops! Looks empty</h3>
                         <p>
-                            Looks like You don't have any bookings yet.
+                            Looks like You don't have any adventure bookings yet.
                         </p>
                     </div>
                 </div>

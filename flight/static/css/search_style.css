@@ -139,7 +139,6 @@
 
 .query-result-div, .query-result-div-2{
     flex: 1;
-    background-color: #fff;
     display: flex;
     animation-name: appear;
     animation-duration: .4s;
@@ -211,9 +210,9 @@
 .each-flight-div{
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;/*
+    padding: 15px 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
 .each-flight-div-box{
     border-radius: 5px;
