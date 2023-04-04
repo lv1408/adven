@@ -27,7 +27,6 @@ def createticket(user,customers,customerscount,adven,advenInDate,avenOutDate,ser
         adventures.passengers.add(customer)
     adventures.adven = adven
     adventures.adven_ddate = datetime(int(advenInDate.split('-')[2]),int(advenInDate.split('-')[1]),int(advenInDate.split('-')[0]))
-    ###################
     adventures.adve_adate = datetime(int(avenOutDate.split('-')[2]),int(avenOutDate.split('-')[1]),int(avenOutDate.split('-')[0]))
     ffre = 0.0
     if serviceClass.lower() == 'regular':
@@ -45,8 +44,7 @@ def createticket(user,customers,customerscount,adven,advenInDate,avenOutDate,ser
             adventures.adven_fare = (adven.premium_fare * int(customerscount))*CAD
             ffre = (adven.premium_fare * int(customerscount))*CAD
     adventures.other_charges = FEE
-                    ##########Coupon
-    adventures.total_fare = ffre+FEE+0.0                    ##########Total(Including coupon)
+    adventures.total_fare = ffre+FEE+0.0
     if trip_type == '1':
         adventures.currency = 'USD'
     elif trip_type == '2':

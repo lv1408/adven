@@ -16,7 +16,7 @@
         </div>
         <div class="search-flight">
             <div class="container">
-                <form class="search-flight-form" action="{% url 'flight' %}" onsubmit="return flight_search()">
+                <form class="search-flight-form" action="{% url 'flight' %}" onsubmit="return adven_search()">
                 <div class="align-items-center">
                     <div class="search-flight-form-data">
                         <div class="input-row" style="display: flex;">
@@ -32,8 +32,8 @@
                         </div>
                         </div>
                         <div class="input-row">
-                            <label for="flight-from">Home city: </label>
-                            <input type="text" name="Origin" placeholder="From" id="flight-from" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{origin | lower}}" data-list="places_from" autocomplete="off" value="{{origin | upper}}">  <!--list="places_from"-->
+                            <label for="adven-from">Home City: </label>
+                            <input type="text" name="Origin" placeholder="From" id="adven-from" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{origin | lower}}" data-list="places_from" autocomplete="off" value="{{origin | upper}}">  <!--list="places_from"-->
                             <div id="places_from" class="places_box">
                                 <div class="each_places_from_list places__list" data-value="jfk" onclick="selectplace(this)">New York (USA)</div>
                                 <div class="each_places_from_list places__list" data-value="yyz" onclick="selectplace(this)">Toronto (Canada)</div>
@@ -53,8 +53,8 @@
                             </div>
                         </div>
                         <div class="input-row">
-                            <label for="flight_to">Destination city for adventures: </label>
-                            <input type="text" name="Destination" placeholder="To" id="flight-to" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{destination | lower}}" data-list="places_to" autocomplete="off" value="{{destination | upper}}">
+                            <label for="adven_to">Destination city for adventures: </label>
+                            <input type="text" name="Destination" placeholder="To" id="adven-to" class="form-control mr-sm-3" onblur="hideplaces(this)" data-value="{{destination | lower}}" data-list="places_to" autocomplete="off" value="{{destination | upper}}">
                             <div id="places_to" class="places_box">
                                 <div class="each_places_from_list places__list" data-value="jfk" onclick="selectplace(this)">New York (USA)</div>
                                 <div class="each_places_from_list places__list" data-value="yyz" onclick="selectplace(this)">Toronto (Canada)</div>

@@ -1,19 +1,18 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("#flight-from").addEventListener("input", event => {
-        flight_from(event);
+    document.querySelector("#adven-from").addEventListener("input", event => {
+        adven_from(event);
     });
 
-    document.querySelector("#flight-to").addEventListener("input", event => {
-        flight_to(event);
+    document.querySelector("#adven-to").addEventListener("input", event => {
+        adven_to(event);
     });
 
-    document.querySelector("#flight-from").addEventListener("focus", event => {
-        flight_from(event, true);
+    document.querySelector("#adven-from").addEventListener("focus", event => {
+        adven_from(event, true);
     });
 
-    document.querySelector("#flight-to").addEventListener("focus", event => {
-        flight_to(event, true);
+    document.querySelector("#adven-to").addEventListener("focus", event => {
+        adven_to(event, true);
     });
 
     document.querySelectorAll('.trip-type').forEach(type => {
@@ -41,7 +40,7 @@ function selectplace(option) {
     input.dataset.value = option.dataset.value;
 }
 
-function flight_to(event, focus=false) {
+function adven_to(event, focus=false) {
     let input = event.target;
     let list = document.querySelector('#places_to');
     showplaces(input);
@@ -66,7 +65,7 @@ function flight_to(event, focus=false) {
     }
 }
 
-function flight_from(event, focus=false) {
+function adven_from(event, focus=false) {
     let input = event.target;
     let list = document.querySelector('#places_from');
     showplaces(input);
@@ -104,29 +103,13 @@ function trip_type() {
     })
 }
 
-function flight_search() {
-    if(!document.querySelector("#flight-from").dataset.value) {
+function adven_search() {
+    if(!document.querySelector("adven-from").dataset.value) {
         alert("Please select your home city.");
         return false;
     }
-    if(!document.querySelector("#flight-to").dataset.value) {
+    if(!document.querySelector("#adven-to").dataset.value) {
         alert("Please select your destination city.");
         return false;
-    }
-    if(document.querySelector("#one-way").checked) {
-        if(!document.querySelector("#depart_date").value) {
-            alert("Please select check-in date.");
-            return false;
-        }
-    }
-    if(document.querySelector("#round-trip").checked) {
-        if(!document.querySelector("#depart_date").value) {
-            alert("Please select check-in date.");
-            return false;
-        }
-        if(!document.querySelector("#return_date").value) {
-            alert("Please select check-out date.");
-            return false;
-        }
     }
 }

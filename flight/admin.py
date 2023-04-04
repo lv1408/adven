@@ -6,10 +6,8 @@ from .models import *
 
 admin.site.register(Place)
 admin.site.register(Week)
-admin.site.register(Flight)
 admin.site.register(Passenger)
 admin.site.register(User)
-admin.site.register(Ticket)
 
 admin.site.register(adven_place)
 admin.site.register(adven_booking)
